@@ -1,0 +1,374 @@
+simulation time =8.64E7ms
+Starting Simulation...
+Initialising...
+  Creating Host #0 with 16 PEs @ 40000 MIPS each.
+  Creating Host #1 with 8 PEs @ 20000 MIPS each.
+Creating new broker DC1-Broker
+VM (ID: 0) Memory: 512 MB
+VM (ID: 0) Cpu: 1
+VM (ID: 0) Bw: 1000
+VM (ID: 0) Storage: 10000
+VM (ID: 0) Mips: 1000
+VM (ID: 1) Memory: 1024 MB
+VM (ID: 1) Cpu: 2
+VM (ID: 1) Bw: 1000
+VM (ID: 1) Storage: 20000
+VM (ID: 1) Mips: 2000
+VM (ID: 2) Memory: 2048 MB
+VM (ID: 2) Cpu: 4
+VM (ID: 2) Bw: 1000
+VM (ID: 2) Storage: 40000
+VM (ID: 2) Mips: 4000
+VM (ID: 3) Memory: 512 MB
+VM (ID: 3) Cpu: 1
+VM (ID: 3) Bw: 1000
+VM (ID: 3) Storage: 10000
+VM (ID: 3) Mips: 1000
+VM (ID: 4) Memory: 1024 MB
+VM (ID: 4) Cpu: 2
+VM (ID: 4) Bw: 1000
+VM (ID: 4) Storage: 20000
+VM (ID: 4) Mips: 2000
+VM (ID: 5) Memory: 2048 MB
+VM (ID: 5) Cpu: 4
+VM (ID: 5) Bw: 1000
+VM (ID: 5) Storage: 40000
+VM (ID: 5) Mips: 4000
+VM (ID: 6) Memory: 512 MB
+VM (ID: 6) Cpu: 1
+VM (ID: 6) Bw: 1000
+VM (ID: 6) Storage: 10000
+VM (ID: 6) Mips: 1000
+VM (ID: 7) Memory: 1024 MB
+VM (ID: 7) Cpu: 2
+VM (ID: 7) Bw: 1000
+VM (ID: 7) Storage: 20000
+VM (ID: 7) Mips: 2000
+VM (ID: 8) Memory: 2048 MB
+VM (ID: 8) Cpu: 4
+VM (ID: 8) Bw: 1000
+VM (ID: 8) Storage: 40000
+VM (ID: 8) Mips: 4000
+VM (ID: 9) Memory: 512 MB
+VM (ID: 9) Cpu: 1
+VM (ID: 9) Bw: 1000
+VM (ID: 9) Storage: 10000
+VM (ID: 9) Mips: 1000
+VM (ID: 10) Memory: 1024 MB
+VM (ID: 10) Cpu: 2
+VM (ID: 10) Bw: 1000
+VM (ID: 10) Storage: 20000
+VM (ID: 10) Mips: 2000
+VM (ID: 11) Memory: 2048 MB
+VM (ID: 11) Cpu: 4
+VM (ID: 11) Bw: 1000
+VM (ID: 11) Storage: 40000
+VM (ID: 11) Mips: 4000
+VM (ID: 12) Memory: 512 MB
+VM (ID: 12) Cpu: 1
+VM (ID: 12) Bw: 1000
+VM (ID: 12) Storage: 10000
+VM (ID: 12) Mips: 1000
+VM (ID: 13) Memory: 1024 MB
+VM (ID: 13) Cpu: 2
+VM (ID: 13) Bw: 1000
+VM (ID: 13) Storage: 20000
+VM (ID: 13) Mips: 2000
+VM (ID: 14) Memory: 2048 MB
+VM (ID: 14) Cpu: 4
+VM (ID: 14) Bw: 1000
+VM (ID: 14) Storage: 40000
+VM (ID: 14) Mips: 4000
+  Creating Host #0 with 16 PEs @ 40000 MIPS each.
+  Creating Host #1 with 8 PEs @ 20000 MIPS each.
+Creating new broker DC2-Broker
+VM (ID: 0) Memory: 512 MB
+VM (ID: 0) Cpu: 1
+VM (ID: 0) Bw: 1000
+VM (ID: 0) Storage: 10000
+VM (ID: 0) Mips: 1000
+VM (ID: 1) Memory: 1024 MB
+VM (ID: 1) Cpu: 2
+VM (ID: 1) Bw: 1000
+VM (ID: 1) Storage: 20000
+VM (ID: 1) Mips: 2000
+VM (ID: 2) Memory: 2048 MB
+VM (ID: 2) Cpu: 4
+VM (ID: 2) Bw: 1000
+VM (ID: 2) Storage: 40000
+VM (ID: 2) Mips: 4000
+VM (ID: 3) Memory: 512 MB
+VM (ID: 3) Cpu: 1
+VM (ID: 3) Bw: 1000
+VM (ID: 3) Storage: 10000
+VM (ID: 3) Mips: 1000
+VM (ID: 4) Memory: 1024 MB
+VM (ID: 4) Cpu: 2
+VM (ID: 4) Bw: 1000
+VM (ID: 4) Storage: 20000
+VM (ID: 4) Mips: 2000
+VM (ID: 5) Memory: 2048 MB
+VM (ID: 5) Cpu: 4
+VM (ID: 5) Bw: 1000
+VM (ID: 5) Storage: 40000
+VM (ID: 5) Mips: 4000
+VM (ID: 6) Memory: 512 MB
+VM (ID: 6) Cpu: 1
+VM (ID: 6) Bw: 1000
+VM (ID: 6) Storage: 10000
+VM (ID: 6) Mips: 1000
+VM (ID: 7) Memory: 1024 MB
+VM (ID: 7) Cpu: 2
+VM (ID: 7) Bw: 1000
+VM (ID: 7) Storage: 20000
+VM (ID: 7) Mips: 2000
+VM (ID: 8) Memory: 2048 MB
+VM (ID: 8) Cpu: 4
+VM (ID: 8) Bw: 1000
+VM (ID: 8) Storage: 40000
+VM (ID: 8) Mips: 4000
+VM (ID: 9) Memory: 512 MB
+VM (ID: 9) Cpu: 1
+VM (ID: 9) Bw: 1000
+VM (ID: 9) Storage: 10000
+VM (ID: 9) Mips: 1000
+VM (ID: 10) Memory: 1024 MB
+VM (ID: 10) Cpu: 2
+VM (ID: 10) Bw: 1000
+VM (ID: 10) Storage: 20000
+VM (ID: 10) Mips: 2000
+VM (ID: 11) Memory: 2048 MB
+VM (ID: 11) Cpu: 4
+VM (ID: 11) Bw: 1000
+VM (ID: 11) Storage: 40000
+VM (ID: 11) Mips: 4000
+VM (ID: 12) Memory: 512 MB
+VM (ID: 12) Cpu: 1
+VM (ID: 12) Bw: 1000
+VM (ID: 12) Storage: 10000
+VM (ID: 12) Mips: 1000
+  Creating Host #0 with 16 PEs @ 40000 MIPS each.
+  Creating Host #1 with 8 PEs @ 20000 MIPS each.
+Creating new broker DC3-Broker
+VM (ID: 0) Memory: 512 MB
+VM (ID: 0) Cpu: 1
+VM (ID: 0) Bw: 1000
+VM (ID: 0) Storage: 10000
+VM (ID: 0) Mips: 1000
+VM (ID: 1) Memory: 1024 MB
+VM (ID: 1) Cpu: 2
+VM (ID: 1) Bw: 1000
+VM (ID: 1) Storage: 20000
+VM (ID: 1) Mips: 2000
+VM (ID: 2) Memory: 2048 MB
+VM (ID: 2) Cpu: 4
+VM (ID: 2) Bw: 1000
+VM (ID: 2) Storage: 40000
+VM (ID: 2) Mips: 4000
+VM (ID: 3) Memory: 512 MB
+VM (ID: 3) Cpu: 1
+VM (ID: 3) Bw: 1000
+VM (ID: 3) Storage: 10000
+VM (ID: 3) Mips: 1000
+VM (ID: 4) Memory: 1024 MB
+VM (ID: 4) Cpu: 2
+VM (ID: 4) Bw: 1000
+VM (ID: 4) Storage: 20000
+VM (ID: 4) Mips: 2000
+VM (ID: 5) Memory: 2048 MB
+VM (ID: 5) Cpu: 4
+VM (ID: 5) Bw: 1000
+VM (ID: 5) Storage: 40000
+VM (ID: 5) Mips: 4000
+VM (ID: 6) Memory: 512 MB
+VM (ID: 6) Cpu: 1
+VM (ID: 6) Bw: 1000
+VM (ID: 6) Storage: 10000
+VM (ID: 6) Mips: 1000
+VM (ID: 7) Memory: 1024 MB
+VM (ID: 7) Cpu: 2
+VM (ID: 7) Bw: 1000
+VM (ID: 7) Storage: 20000
+VM (ID: 7) Mips: 2000
+VM (ID: 8) Memory: 2048 MB
+VM (ID: 8) Cpu: 4
+VM (ID: 8) Bw: 1000
+VM (ID: 8) Storage: 40000
+VM (ID: 8) Mips: 4000
+0.0 Creating new user base UB1
+0.0 Creating new user base UB2
+0.0 Creating new user base UB3
+Starting GridSim version 4.2
+Entities started.
+Starting broker 8 name=DC2-Broker
+Starting internet 17
+Starting user base 15 UB3
+Starting broker 10 name=DC3-Broker
+Starting user base 13 UB2
+Starting user base 11 UB1
+Starting broker 6 name=DC1-Broker
+5.0: DC2-Broker: Cloud Resource List received with 3 resource(s)
+5.0: DC3-Broker: Cloud Resource List received with 3 resource(s)
+5.0: DC1-Broker: Cloud Resource List received with 3 resource(s)
+5.0: DC2-Broker: Trying to Create VM #0
+5.0: DC3-Broker: Trying to Create VM #0
+5.0: DC1-Broker: Trying to Create VM #0
+5.0: DC3-Broker: Trying to Create VM #1
+5.0: DC2-Broker: Trying to Create VM #1
+5.0: DC1-Broker: Trying to Create VM #1
+5.0: DC2-Broker: Trying to Create VM #2
+5.0: DC1-Broker: Trying to Create VM #2
+5.0: DC3-Broker: Trying to Create VM #2
+5.0: DC1-Broker: Trying to Create VM #3
+5.0: DC2-Broker: Trying to Create VM #3
+5.0: DC1-Broker: Trying to Create VM #4
+5.0: DC3-Broker: Trying to Create VM #3
+5.0: DC1-Broker: Trying to Create VM #5
+5.0: DC2-Broker: Trying to Create VM #4
+5.0: DC1-Broker: Trying to Create VM #6
+5.0: DC3-Broker: Trying to Create VM #4
+5.0: DC1-Broker: Trying to Create VM #7
+5.0: DC2-Broker: Trying to Create VM #5
+5.0: DC1-Broker: Trying to Create VM #8
+5.0: DC3-Broker: Trying to Create VM #5
+5.0: DC1-Broker: Trying to Create VM #9
+5.0: DC2-Broker: Trying to Create VM #6
+5.0: DC1-Broker: Trying to Create VM #10
+5.0: DC3-Broker: Trying to Create VM #6
+5.0: DC1-Broker: Trying to Create VM #11
+5.0: DC2-Broker: Trying to Create VM #7
+5.0: DC1-Broker: Trying to Create VM #12
+5.0: DC2-Broker: Trying to Create VM #8
+5.0: DC1-Broker: Trying to Create VM #13
+5.0: DC2-Broker: Trying to Create VM #9
+5.0: DC3-Broker: Trying to Create VM #7
+5.0: DC2-Broker: Trying to Create VM #10
+5.0: DC1-Broker: Trying to Create VM #14
+5.0: DC2-Broker: Trying to Create VM #11
+5.0: DC3-Broker: Trying to Create VM #8
+5.0: DC2-Broker: Trying to Create VM #12
+VM 0 created successfully in DC2-Broker
+VM 0 created successfully in DC1-Broker
+VM 0 created successfully in DC3-Broker
+VM 1 created successfully in DC2-Broker
+VM 1 created successfully in DC3-Broker
+VM 1 created successfully in DC1-Broker
+VM 2 created successfully in DC3-Broker
+VM 2 created successfully in DC2-Broker
+VM 3 created successfully in DC3-Broker
+VM 3 created successfully in DC2-Broker
+VM 4 created successfully in DC3-Broker
+VM 4 created successfully in DC2-Broker
+VM 2 created successfully in DC1-Broker
+VM 5 created successfully in DC2-Broker
+VM 5 created successfully in DC3-Broker
+VM 6 created successfully in DC2-Broker
+VM 3 created successfully in DC1-Broker
+VM 7 created successfully in DC2-Broker
+VM 4 created successfully in DC1-Broker
+VM 6 created successfully in DC3-Broker
+VM 5 created successfully in DC1-Broker
+VM 8 created successfully in DC2-Broker
+VM 6 created successfully in DC1-Broker
+VM 9 created successfully in DC2-Broker
+VM 7 created successfully in DC3-Broker
+VM 10 created successfully in DC2-Broker
+VM 7 created successfully in DC1-Broker
+VM 11 created successfully in DC2-Broker
+VM 8 created successfully in DC1-Broker
+VM 8 created successfully in DC3-Broker
+VM 9 created successfully in DC1-Broker
+VM 12 created successfully in DC2-Broker
+VM 10 created successfully in DC1-Broker
+VM 11 created successfully in DC1-Broker
+VM 12 created successfully in DC1-Broker
+VM 13 created successfully in DC1-Broker
+VM 14 created successfully in DC1-Broker
+Gathering simulation data.
+UB2 finalizing. Messages sent:596818, Received:596818
+UB3 finalizing. Messages sent:222074, Received:222074
+UB3 requests sent=22146075 , received=22146075
+UB1 finalizing. Messages sent:583792, Received:583792
+UB2 requests sent=59681800 , received=59681800
+UB1 requests sent=58379200 , received=58379200
+Got response for 1683728 but it seems to be completed.
+Got response for 1896715 but it seems to be completed.
+Got response for 1722018 but it seems to be completed.
+DC1-Broker finalizing, submitted cloudlets=543836 processing cloudlets=0 ,allRequestsProcessed=54383600
+DC3-Broker finalizing, submitted cloudlets=261526 processing cloudlets=0 ,allRequestsProcessed=26091275
+DC2-Broker finalizing, submitted cloudlets=597322 processing cloudlets=0 ,allRequestsProcessed=59732200
+Simulation completed.
+************ Vm allocations in DC1
+0->72513
+1->72513
+2->72513
+3->72513
+4->72513
+5->72513
+6->72513
+7->72513
+8->72512
+9->72512
+10->72512
+11->72512
+12->72512
+13->72512
+14->72512
+------ Tiered Allocation Summary for DC1 ------
+  Strong VMs allocated   : 362562
+  Moderate VMs allocated : 362563
+  Weak VMs allocated     : 362563
+  --------------------------------------
+  Total allocations      : 1087688
+**********************************************************
+************ Vm allocations in DC2
+0->91897
+1->91897
+2->91897
+3->91897
+4->91897
+5->91897
+6->91897
+7->91897
+8->91897
+9->91897
+10->91896
+11->91896
+12->91896
+------ Tiered Allocation Summary for DC2 ------
+  Strong VMs allocated   : 367587
+  Moderate VMs allocated : 367587
+  Weak VMs allocated     : 459484
+  --------------------------------------
+  Total allocations      : 1194658
+**********************************************************
+************ Vm allocations in DC3
+0->58118
+1->58118
+2->58118
+3->58118
+4->58118
+5->58118
+6->58118
+7->58118
+8->58118
+------ Tiered Allocation Summary for DC3 ------
+  Strong VMs allocated   : 174354
+  Moderate VMs allocated : 174354
+  Weak VMs allocated     : 174354
+  --------------------------------------
+  Total allocations      : 523062
+**********************************************************
+*****Datacenter: DC1*****
+User id		Debt
+6		35896
+**********************************
+*****Datacenter: DC2*****
+User id		Debt
+8		29742.4
+**********************************
+*****Datacenter: DC3*****
+User id		Debt
+10		21537.6
+**********************************
+Simulation finished at 8.6411193E7

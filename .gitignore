@@ -1,0 +1,23 @@
+# Build output
+build/
+dist/
+nbproject/private/
+
+# Eclipse / NetBeans workspace metadata
+.metadata/
+.workspace/
+RemoteSystemsTempFiles/
+
+# CloudAnalyst runtime artifacts
+GridSim_stat.txt
+sim_report
+sim_trace
+
+# Compiled classes
+*.class
+
+# OS and editor files
+.DS_Store
+Thumbs.db
+*.swp
+*~

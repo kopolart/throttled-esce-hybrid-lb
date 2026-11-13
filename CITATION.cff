@@ -1,0 +1,36 @@
+cff-version: 1.2.0
+message: "If you use this software or the reported results, please cite the accompanying article."
+title: "Throttled-ESCE Hybrid Load Balancer: reference implementation and CloudAnalyst experiments"
+abstract: >-
+  Reference implementation of a cost-efficient hybrid load balancer that
+  combines Throttled and Equally Spread Current Execution policies with
+  tri-level load thresholds, capacity-aware scoring and elastic scaling for
+  heterogeneous cloud environments.
+type: software
+authors:
+  - family-names: "Yousefi Choubini"
+    given-names: "Ali"
+    affiliation: "Shahid Ashrafi Esfahani University, Isfahan, Iran"
+    email: "a.yousofi@ashrafi.ac.ir"
+repository-code: "https://github.com/kopolart/throttled-esce-hybrid-lb"
+url: "https://github.com/kopolart/throttled-esce-hybrid-lb"
+license: MIT
+version: "1.0.0"
+date-released: "2026-11-13"
+keywords:
+  - cloud computing
+  - load balancing
+  - CloudAnalyst
+  - CloudSim
+  - throttled load balancing
+  - ESCE
+  - heterogeneous clouds
+preferred-citation:
+  type: article
+  title: "A Cost-Efficient Hybrid Load Balancer Using Throttled-ESCE Synthesis and Tri-level Load Thresholds for Heterogeneous Clouds"
+  authors:
+    - family-names: "Yousefi Choubini"
+      given-names: "Ali"
+      affiliation: "Shahid Ashrafi Esfahani University, Isfahan, Iran"
+  year: 2026
+  journal: "Manuscript submitted for publication"

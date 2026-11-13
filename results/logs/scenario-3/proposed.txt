@@ -1,0 +1,2050 @@
+simulation time =8.64E7ms
+Starting Simulation...
+Initialising...
+  Creating Host #0 with 16 PEs @ 40000 MIPS each.
+  Creating Host #1 with 8 PEs @ 20000 MIPS each.
+Creating new broker DC1-Broker
+Performance-Optimized Load Balancer Initialized:
+  Total VMs: 0
+  Idle Threshold: 300.0s
+  Initial Optimal VMs: 1
+Enhanced Load Balancer for DC1
+VM (ID: 0) Memory: 512 MB
+VM (ID: 0) Cpu: 1
+VM (ID: 0) Bw: 1000
+VM (ID: 0) Storage: 10000
+VM (ID: 0) Mips: 1000
+VM (ID: 1) Memory: 1024 MB
+VM (ID: 1) Cpu: 2
+VM (ID: 1) Bw: 1000
+VM (ID: 1) Storage: 20000
+VM (ID: 1) Mips: 2000
+VM (ID: 2) Memory: 2048 MB
+VM (ID: 2) Cpu: 4
+VM (ID: 2) Bw: 1000
+VM (ID: 2) Storage: 40000
+VM (ID: 2) Mips: 4000
+VM (ID: 3) Memory: 512 MB
+VM (ID: 3) Cpu: 1
+VM (ID: 3) Bw: 1000
+VM (ID: 3) Storage: 10000
+VM (ID: 3) Mips: 1000
+VM (ID: 4) Memory: 1024 MB
+VM (ID: 4) Cpu: 2
+VM (ID: 4) Bw: 1000
+VM (ID: 4) Storage: 20000
+VM (ID: 4) Mips: 2000
+VM (ID: 5) Memory: 2048 MB
+VM (ID: 5) Cpu: 4
+VM (ID: 5) Bw: 1000
+VM (ID: 5) Storage: 40000
+VM (ID: 5) Mips: 4000
+VM (ID: 6) Memory: 512 MB
+VM (ID: 6) Cpu: 1
+VM (ID: 6) Bw: 1000
+VM (ID: 6) Storage: 10000
+VM (ID: 6) Mips: 1000
+VM (ID: 7) Memory: 1024 MB
+VM (ID: 7) Cpu: 2
+VM (ID: 7) Bw: 1000
+VM (ID: 7) Storage: 20000
+VM (ID: 7) Mips: 2000
+VM (ID: 8) Memory: 2048 MB
+VM (ID: 8) Cpu: 4
+VM (ID: 8) Bw: 1000
+VM (ID: 8) Storage: 40000
+VM (ID: 8) Mips: 4000
+VM (ID: 9) Memory: 512 MB
+VM (ID: 9) Cpu: 1
+VM (ID: 9) Bw: 1000
+VM (ID: 9) Storage: 10000
+VM (ID: 9) Mips: 1000
+VM (ID: 10) Memory: 1024 MB
+VM (ID: 10) Cpu: 2
+VM (ID: 10) Bw: 1000
+VM (ID: 10) Storage: 20000
+VM (ID: 10) Mips: 2000
+VM (ID: 11) Memory: 2048 MB
+VM (ID: 11) Cpu: 4
+VM (ID: 11) Bw: 1000
+VM (ID: 11) Storage: 40000
+VM (ID: 11) Mips: 4000
+VM (ID: 12) Memory: 512 MB
+VM (ID: 12) Cpu: 1
+VM (ID: 12) Bw: 1000
+VM (ID: 12) Storage: 10000
+VM (ID: 12) Mips: 1000
+VM (ID: 13) Memory: 1024 MB
+VM (ID: 13) Cpu: 2
+VM (ID: 13) Bw: 1000
+VM (ID: 13) Storage: 20000
+VM (ID: 13) Mips: 2000
+VM (ID: 14) Memory: 2048 MB
+VM (ID: 14) Cpu: 4
+VM (ID: 14) Bw: 1000
+VM (ID: 14) Storage: 40000
+VM (ID: 14) Mips: 4000
+VM (ID: 15) Memory: 512 MB
+VM (ID: 15) Cpu: 1
+VM (ID: 15) Bw: 1000
+VM (ID: 15) Storage: 10000
+VM (ID: 15) Mips: 1000
+VM (ID: 16) Memory: 1024 MB
+VM (ID: 16) Cpu: 2
+VM (ID: 16) Bw: 1000
+VM (ID: 16) Storage: 20000
+VM (ID: 16) Mips: 2000
+VM (ID: 17) Memory: 2048 MB
+VM (ID: 17) Cpu: 4
+VM (ID: 17) Bw: 1000
+VM (ID: 17) Storage: 40000
+VM (ID: 17) Mips: 4000
+VM (ID: 18) Memory: 512 MB
+VM (ID: 18) Cpu: 1
+VM (ID: 18) Bw: 1000
+VM (ID: 18) Storage: 10000
+VM (ID: 18) Mips: 1000
+VM (ID: 19) Memory: 1024 MB
+VM (ID: 19) Cpu: 2
+VM (ID: 19) Bw: 1000
+VM (ID: 19) Storage: 20000
+VM (ID: 19) Mips: 2000
+VM (ID: 20) Memory: 2048 MB
+VM (ID: 20) Cpu: 4
+VM (ID: 20) Bw: 1000
+VM (ID: 20) Storage: 40000
+VM (ID: 20) Mips: 4000
+VM (ID: 21) Memory: 512 MB
+VM (ID: 21) Cpu: 1
+VM (ID: 21) Bw: 1000
+VM (ID: 21) Storage: 10000
+VM (ID: 21) Mips: 1000
+VM (ID: 22) Memory: 1024 MB
+VM (ID: 22) Cpu: 2
+VM (ID: 22) Bw: 1000
+VM (ID: 22) Storage: 20000
+VM (ID: 22) Mips: 2000
+VM (ID: 23) Memory: 2048 MB
+VM (ID: 23) Cpu: 4
+VM (ID: 23) Bw: 1000
+VM (ID: 23) Storage: 40000
+VM (ID: 23) Mips: 4000
+VM (ID: 24) Memory: 512 MB
+VM (ID: 24) Cpu: 1
+VM (ID: 24) Bw: 1000
+VM (ID: 24) Storage: 10000
+VM (ID: 24) Mips: 1000
+VM (ID: 25) Memory: 1024 MB
+VM (ID: 25) Cpu: 2
+VM (ID: 25) Bw: 1000
+VM (ID: 25) Storage: 20000
+VM (ID: 25) Mips: 2000
+VM (ID: 26) Memory: 2048 MB
+VM (ID: 26) Cpu: 4
+VM (ID: 26) Bw: 1000
+VM (ID: 26) Storage: 40000
+VM (ID: 26) Mips: 4000
+VM (ID: 27) Memory: 512 MB
+VM (ID: 27) Cpu: 1
+VM (ID: 27) Bw: 1000
+VM (ID: 27) Storage: 10000
+VM (ID: 27) Mips: 1000
+VM (ID: 28) Memory: 1024 MB
+VM (ID: 28) Cpu: 2
+VM (ID: 28) Bw: 1000
+VM (ID: 28) Storage: 20000
+VM (ID: 28) Mips: 2000
+VM (ID: 29) Memory: 2048 MB
+VM (ID: 29) Cpu: 4
+VM (ID: 29) Bw: 1000
+VM (ID: 29) Storage: 40000
+VM (ID: 29) Mips: 4000
+VM (ID: 30) Memory: 512 MB
+VM (ID: 30) Cpu: 1
+VM (ID: 30) Bw: 1000
+VM (ID: 30) Storage: 10000
+VM (ID: 30) Mips: 1000
+VM (ID: 31) Memory: 1024 MB
+VM (ID: 31) Cpu: 2
+VM (ID: 31) Bw: 1000
+VM (ID: 31) Storage: 20000
+VM (ID: 31) Mips: 2000
+VM (ID: 32) Memory: 2048 MB
+VM (ID: 32) Cpu: 4
+VM (ID: 32) Bw: 1000
+VM (ID: 32) Storage: 40000
+VM (ID: 32) Mips: 4000
+VM (ID: 33) Memory: 512 MB
+VM (ID: 33) Cpu: 1
+VM (ID: 33) Bw: 1000
+VM (ID: 33) Storage: 10000
+VM (ID: 33) Mips: 1000
+VM (ID: 34) Memory: 1024 MB
+VM (ID: 34) Cpu: 2
+VM (ID: 34) Bw: 1000
+VM (ID: 34) Storage: 20000
+VM (ID: 34) Mips: 2000
+VM (ID: 35) Memory: 2048 MB
+VM (ID: 35) Cpu: 4
+VM (ID: 35) Bw: 1000
+VM (ID: 35) Storage: 40000
+VM (ID: 35) Mips: 4000
+VM (ID: 36) Memory: 512 MB
+VM (ID: 36) Cpu: 1
+VM (ID: 36) Bw: 1000
+VM (ID: 36) Storage: 10000
+VM (ID: 36) Mips: 1000
+VM (ID: 37) Memory: 1024 MB
+VM (ID: 37) Cpu: 2
+VM (ID: 37) Bw: 1000
+VM (ID: 37) Storage: 20000
+VM (ID: 37) Mips: 2000
+VM (ID: 38) Memory: 2048 MB
+VM (ID: 38) Cpu: 4
+VM (ID: 38) Bw: 1000
+VM (ID: 38) Storage: 40000
+VM (ID: 38) Mips: 4000
+VM (ID: 39) Memory: 512 MB
+VM (ID: 39) Cpu: 1
+VM (ID: 39) Bw: 1000
+VM (ID: 39) Storage: 10000
+VM (ID: 39) Mips: 1000
+VM (ID: 40) Memory: 1024 MB
+VM (ID: 40) Cpu: 2
+VM (ID: 40) Bw: 1000
+VM (ID: 40) Storage: 20000
+VM (ID: 40) Mips: 2000
+VM (ID: 41) Memory: 2048 MB
+VM (ID: 41) Cpu: 4
+VM (ID: 41) Bw: 1000
+VM (ID: 41) Storage: 40000
+VM (ID: 41) Mips: 4000
+VM (ID: 42) Memory: 512 MB
+VM (ID: 42) Cpu: 1
+VM (ID: 42) Bw: 1000
+VM (ID: 42) Storage: 10000
+VM (ID: 42) Mips: 1000
+VM (ID: 43) Memory: 1024 MB
+VM (ID: 43) Cpu: 2
+VM (ID: 43) Bw: 1000
+VM (ID: 43) Storage: 20000
+VM (ID: 43) Mips: 2000
+VM (ID: 44) Memory: 2048 MB
+VM (ID: 44) Cpu: 4
+VM (ID: 44) Bw: 1000
+VM (ID: 44) Storage: 40000
+VM (ID: 44) Mips: 4000
+VM (ID: 45) Memory: 512 MB
+VM (ID: 45) Cpu: 1
+VM (ID: 45) Bw: 1000
+VM (ID: 45) Storage: 10000
+VM (ID: 45) Mips: 1000
+VM (ID: 46) Memory: 1024 MB
+VM (ID: 46) Cpu: 2
+VM (ID: 46) Bw: 1000
+VM (ID: 46) Storage: 20000
+VM (ID: 46) Mips: 2000
+VM (ID: 47) Memory: 2048 MB
+VM (ID: 47) Cpu: 4
+VM (ID: 47) Bw: 1000
+VM (ID: 47) Storage: 40000
+VM (ID: 47) Mips: 4000
+VM (ID: 48) Memory: 512 MB
+VM (ID: 48) Cpu: 1
+VM (ID: 48) Bw: 1000
+VM (ID: 48) Storage: 10000
+VM (ID: 48) Mips: 1000
+VM (ID: 49) Memory: 1024 MB
+VM (ID: 49) Cpu: 2
+VM (ID: 49) Bw: 1000
+VM (ID: 49) Storage: 20000
+VM (ID: 49) Mips: 2000
+  Creating Host #0 with 16 PEs @ 40000 MIPS each.
+  Creating Host #1 with 8 PEs @ 20000 MIPS each.
+Creating new broker DC2-Broker
+Performance-Optimized Load Balancer Initialized:
+  Total VMs: 0
+  Idle Threshold: 300.0s
+  Initial Optimal VMs: 1
+Enhanced Load Balancer for DC2
+VM (ID: 0) Memory: 512 MB
+VM (ID: 0) Cpu: 1
+VM (ID: 0) Bw: 1000
+VM (ID: 0) Storage: 10000
+VM (ID: 0) Mips: 1000
+VM (ID: 1) Memory: 1024 MB
+VM (ID: 1) Cpu: 2
+VM (ID: 1) Bw: 1000
+VM (ID: 1) Storage: 20000
+VM (ID: 1) Mips: 2000
+VM (ID: 2) Memory: 2048 MB
+VM (ID: 2) Cpu: 4
+VM (ID: 2) Bw: 1000
+VM (ID: 2) Storage: 40000
+VM (ID: 2) Mips: 4000
+VM (ID: 3) Memory: 512 MB
+VM (ID: 3) Cpu: 1
+VM (ID: 3) Bw: 1000
+VM (ID: 3) Storage: 10000
+VM (ID: 3) Mips: 1000
+VM (ID: 4) Memory: 1024 MB
+VM (ID: 4) Cpu: 2
+VM (ID: 4) Bw: 1000
+VM (ID: 4) Storage: 20000
+VM (ID: 4) Mips: 2000
+VM (ID: 5) Memory: 2048 MB
+VM (ID: 5) Cpu: 4
+VM (ID: 5) Bw: 1000
+VM (ID: 5) Storage: 40000
+VM (ID: 5) Mips: 4000
+VM (ID: 6) Memory: 512 MB
+VM (ID: 6) Cpu: 1
+VM (ID: 6) Bw: 1000
+VM (ID: 6) Storage: 10000
+VM (ID: 6) Mips: 1000
+VM (ID: 7) Memory: 1024 MB
+VM (ID: 7) Cpu: 2
+VM (ID: 7) Bw: 1000
+VM (ID: 7) Storage: 20000
+VM (ID: 7) Mips: 2000
+VM (ID: 8) Memory: 2048 MB
+VM (ID: 8) Cpu: 4
+VM (ID: 8) Bw: 1000
+VM (ID: 8) Storage: 40000
+VM (ID: 8) Mips: 4000
+VM (ID: 9) Memory: 512 MB
+VM (ID: 9) Cpu: 1
+VM (ID: 9) Bw: 1000
+VM (ID: 9) Storage: 10000
+VM (ID: 9) Mips: 1000
+VM (ID: 10) Memory: 1024 MB
+VM (ID: 10) Cpu: 2
+VM (ID: 10) Bw: 1000
+VM (ID: 10) Storage: 20000
+VM (ID: 10) Mips: 2000
+VM (ID: 11) Memory: 2048 MB
+VM (ID: 11) Cpu: 4
+VM (ID: 11) Bw: 1000
+VM (ID: 11) Storage: 40000
+VM (ID: 11) Mips: 4000
+VM (ID: 12) Memory: 512 MB
+VM (ID: 12) Cpu: 1
+VM (ID: 12) Bw: 1000
+VM (ID: 12) Storage: 10000
+VM (ID: 12) Mips: 1000
+VM (ID: 13) Memory: 1024 MB
+VM (ID: 13) Cpu: 2
+VM (ID: 13) Bw: 1000
+VM (ID: 13) Storage: 20000
+VM (ID: 13) Mips: 2000
+VM (ID: 14) Memory: 2048 MB
+VM (ID: 14) Cpu: 4
+VM (ID: 14) Bw: 1000
+VM (ID: 14) Storage: 40000
+VM (ID: 14) Mips: 4000
+VM (ID: 15) Memory: 512 MB
+VM (ID: 15) Cpu: 1
+VM (ID: 15) Bw: 1000
+VM (ID: 15) Storage: 10000
+VM (ID: 15) Mips: 1000
+VM (ID: 16) Memory: 1024 MB
+VM (ID: 16) Cpu: 2
+VM (ID: 16) Bw: 1000
+VM (ID: 16) Storage: 20000
+VM (ID: 16) Mips: 2000
+VM (ID: 17) Memory: 2048 MB
+VM (ID: 17) Cpu: 4
+VM (ID: 17) Bw: 1000
+VM (ID: 17) Storage: 40000
+VM (ID: 17) Mips: 4000
+VM (ID: 18) Memory: 512 MB
+VM (ID: 18) Cpu: 1
+VM (ID: 18) Bw: 1000
+VM (ID: 18) Storage: 10000
+VM (ID: 18) Mips: 1000
+VM (ID: 19) Memory: 1024 MB
+VM (ID: 19) Cpu: 2
+VM (ID: 19) Bw: 1000
+VM (ID: 19) Storage: 20000
+VM (ID: 19) Mips: 2000
+VM (ID: 20) Memory: 2048 MB
+VM (ID: 20) Cpu: 4
+VM (ID: 20) Bw: 1000
+VM (ID: 20) Storage: 40000
+VM (ID: 20) Mips: 4000
+  Creating Host #0 with 16 PEs @ 40000 MIPS each.
+  Creating Host #1 with 8 PEs @ 20000 MIPS each.
+Creating new broker DC3-Broker
+Performance-Optimized Load Balancer Initialized:
+  Total VMs: 0
+  Idle Threshold: 300.0s
+  Initial Optimal VMs: 1
+Enhanced Load Balancer for DC3
+VM (ID: 0) Memory: 512 MB
+VM (ID: 0) Cpu: 1
+VM (ID: 0) Bw: 1000
+VM (ID: 0) Storage: 10000
+VM (ID: 0) Mips: 1000
+VM (ID: 1) Memory: 1024 MB
+VM (ID: 1) Cpu: 2
+VM (ID: 1) Bw: 1000
+VM (ID: 1) Storage: 20000
+VM (ID: 1) Mips: 2000
+VM (ID: 2) Memory: 2048 MB
+VM (ID: 2) Cpu: 4
+VM (ID: 2) Bw: 1000
+VM (ID: 2) Storage: 40000
+VM (ID: 2) Mips: 4000
+VM (ID: 3) Memory: 512 MB
+VM (ID: 3) Cpu: 1
+VM (ID: 3) Bw: 1000
+VM (ID: 3) Storage: 10000
+VM (ID: 3) Mips: 1000
+VM (ID: 4) Memory: 1024 MB
+VM (ID: 4) Cpu: 2
+VM (ID: 4) Bw: 1000
+VM (ID: 4) Storage: 20000
+VM (ID: 4) Mips: 2000
+VM (ID: 5) Memory: 2048 MB
+VM (ID: 5) Cpu: 4
+VM (ID: 5) Bw: 1000
+VM (ID: 5) Storage: 40000
+VM (ID: 5) Mips: 4000
+VM (ID: 6) Memory: 512 MB
+VM (ID: 6) Cpu: 1
+VM (ID: 6) Bw: 1000
+VM (ID: 6) Storage: 10000
+VM (ID: 6) Mips: 1000
+VM (ID: 7) Memory: 1024 MB
+VM (ID: 7) Cpu: 2
+VM (ID: 7) Bw: 1000
+VM (ID: 7) Storage: 20000
+VM (ID: 7) Mips: 2000
+VM (ID: 8) Memory: 2048 MB
+VM (ID: 8) Cpu: 4
+VM (ID: 8) Bw: 1000
+VM (ID: 8) Storage: 40000
+VM (ID: 8) Mips: 4000
+VM (ID: 9) Memory: 512 MB
+VM (ID: 9) Cpu: 1
+VM (ID: 9) Bw: 1000
+VM (ID: 9) Storage: 10000
+VM (ID: 9) Mips: 1000
+VM (ID: 10) Memory: 1024 MB
+VM (ID: 10) Cpu: 2
+VM (ID: 10) Bw: 1000
+VM (ID: 10) Storage: 20000
+VM (ID: 10) Mips: 2000
+VM (ID: 11) Memory: 2048 MB
+VM (ID: 11) Cpu: 4
+VM (ID: 11) Bw: 1000
+VM (ID: 11) Storage: 40000
+VM (ID: 11) Mips: 4000
+VM (ID: 12) Memory: 512 MB
+VM (ID: 12) Cpu: 1
+VM (ID: 12) Bw: 1000
+VM (ID: 12) Storage: 10000
+VM (ID: 12) Mips: 1000
+VM (ID: 13) Memory: 1024 MB
+VM (ID: 13) Cpu: 2
+VM (ID: 13) Bw: 1000
+VM (ID: 13) Storage: 20000
+VM (ID: 13) Mips: 2000
+VM (ID: 14) Memory: 2048 MB
+VM (ID: 14) Cpu: 4
+VM (ID: 14) Bw: 1000
+VM (ID: 14) Storage: 40000
+VM (ID: 14) Mips: 4000
+VM (ID: 15) Memory: 512 MB
+VM (ID: 15) Cpu: 1
+VM (ID: 15) Bw: 1000
+VM (ID: 15) Storage: 10000
+VM (ID: 15) Mips: 1000
+VM (ID: 16) Memory: 1024 MB
+VM (ID: 16) Cpu: 2
+VM (ID: 16) Bw: 1000
+VM (ID: 16) Storage: 20000
+VM (ID: 16) Mips: 2000
+VM (ID: 17) Memory: 2048 MB
+VM (ID: 17) Cpu: 4
+VM (ID: 17) Bw: 1000
+VM (ID: 17) Storage: 40000
+VM (ID: 17) Mips: 4000
+VM (ID: 18) Memory: 512 MB
+VM (ID: 18) Cpu: 1
+VM (ID: 18) Bw: 1000
+VM (ID: 18) Storage: 10000
+VM (ID: 18) Mips: 1000
+VM (ID: 19) Memory: 1024 MB
+VM (ID: 19) Cpu: 2
+VM (ID: 19) Bw: 1000
+VM (ID: 19) Storage: 20000
+VM (ID: 19) Mips: 2000
+VM (ID: 20) Memory: 2048 MB
+VM (ID: 20) Cpu: 4
+VM (ID: 20) Bw: 1000
+VM (ID: 20) Storage: 40000
+VM (ID: 20) Mips: 4000
+VM (ID: 21) Memory: 512 MB
+VM (ID: 21) Cpu: 1
+VM (ID: 21) Bw: 1000
+VM (ID: 21) Storage: 10000
+VM (ID: 21) Mips: 1000
+VM (ID: 22) Memory: 1024 MB
+VM (ID: 22) Cpu: 2
+VM (ID: 22) Bw: 1000
+VM (ID: 22) Storage: 20000
+VM (ID: 22) Mips: 2000
+VM (ID: 23) Memory: 2048 MB
+VM (ID: 23) Cpu: 4
+VM (ID: 23) Bw: 1000
+VM (ID: 23) Storage: 40000
+VM (ID: 23) Mips: 4000
+  Creating Host #0 with 16 PEs @ 40000 MIPS each.
+  Creating Host #1 with 8 PEs @ 20000 MIPS each.
+Creating new broker DC4-Broker
+Performance-Optimized Load Balancer Initialized:
+  Total VMs: 0
+  Idle Threshold: 300.0s
+  Initial Optimal VMs: 1
+Enhanced Load Balancer for DC4
+VM (ID: 0) Memory: 512 MB
+VM (ID: 0) Cpu: 1
+VM (ID: 0) Bw: 1000
+VM (ID: 0) Storage: 10000
+VM (ID: 0) Mips: 1000
+VM (ID: 1) Memory: 1024 MB
+VM (ID: 1) Cpu: 2
+VM (ID: 1) Bw: 1000
+VM (ID: 1) Storage: 20000
+VM (ID: 1) Mips: 2000
+VM (ID: 2) Memory: 2048 MB
+VM (ID: 2) Cpu: 4
+VM (ID: 2) Bw: 1000
+VM (ID: 2) Storage: 40000
+VM (ID: 2) Mips: 4000
+VM (ID: 3) Memory: 512 MB
+VM (ID: 3) Cpu: 1
+VM (ID: 3) Bw: 1000
+VM (ID: 3) Storage: 10000
+VM (ID: 3) Mips: 1000
+VM (ID: 4) Memory: 1024 MB
+VM (ID: 4) Cpu: 2
+VM (ID: 4) Bw: 1000
+VM (ID: 4) Storage: 20000
+VM (ID: 4) Mips: 2000
+VM (ID: 5) Memory: 2048 MB
+VM (ID: 5) Cpu: 4
+VM (ID: 5) Bw: 1000
+VM (ID: 5) Storage: 40000
+VM (ID: 5) Mips: 4000
+VM (ID: 6) Memory: 512 MB
+VM (ID: 6) Cpu: 1
+VM (ID: 6) Bw: 1000
+VM (ID: 6) Storage: 10000
+VM (ID: 6) Mips: 1000
+VM (ID: 7) Memory: 1024 MB
+VM (ID: 7) Cpu: 2
+VM (ID: 7) Bw: 1000
+VM (ID: 7) Storage: 20000
+VM (ID: 7) Mips: 2000
+VM (ID: 8) Memory: 2048 MB
+VM (ID: 8) Cpu: 4
+VM (ID: 8) Bw: 1000
+VM (ID: 8) Storage: 40000
+VM (ID: 8) Mips: 4000
+VM (ID: 9) Memory: 512 MB
+VM (ID: 9) Cpu: 1
+VM (ID: 9) Bw: 1000
+VM (ID: 9) Storage: 10000
+VM (ID: 9) Mips: 1000
+VM (ID: 10) Memory: 1024 MB
+VM (ID: 10) Cpu: 2
+VM (ID: 10) Bw: 1000
+VM (ID: 10) Storage: 20000
+VM (ID: 10) Mips: 2000
+VM (ID: 11) Memory: 2048 MB
+VM (ID: 11) Cpu: 4
+VM (ID: 11) Bw: 1000
+VM (ID: 11) Storage: 40000
+VM (ID: 11) Mips: 4000
+VM (ID: 12) Memory: 512 MB
+VM (ID: 12) Cpu: 1
+VM (ID: 12) Bw: 1000
+VM (ID: 12) Storage: 10000
+VM (ID: 12) Mips: 1000
+VM (ID: 13) Memory: 1024 MB
+VM (ID: 13) Cpu: 2
+VM (ID: 13) Bw: 1000
+VM (ID: 13) Storage: 20000
+VM (ID: 13) Mips: 2000
+VM (ID: 14) Memory: 2048 MB
+VM (ID: 14) Cpu: 4
+VM (ID: 14) Bw: 1000
+VM (ID: 14) Storage: 40000
+VM (ID: 14) Mips: 4000
+VM (ID: 15) Memory: 512 MB
+VM (ID: 15) Cpu: 1
+VM (ID: 15) Bw: 1000
+VM (ID: 15) Storage: 10000
+VM (ID: 15) Mips: 1000
+VM (ID: 16) Memory: 1024 MB
+VM (ID: 16) Cpu: 2
+VM (ID: 16) Bw: 1000
+VM (ID: 16) Storage: 20000
+VM (ID: 16) Mips: 2000
+VM (ID: 17) Memory: 2048 MB
+VM (ID: 17) Cpu: 4
+VM (ID: 17) Bw: 1000
+VM (ID: 17) Storage: 40000
+VM (ID: 17) Mips: 4000
+VM (ID: 18) Memory: 512 MB
+VM (ID: 18) Cpu: 1
+VM (ID: 18) Bw: 1000
+VM (ID: 18) Storage: 10000
+VM (ID: 18) Mips: 1000
+VM (ID: 19) Memory: 1024 MB
+VM (ID: 19) Cpu: 2
+VM (ID: 19) Bw: 1000
+VM (ID: 19) Storage: 20000
+VM (ID: 19) Mips: 2000
+VM (ID: 20) Memory: 2048 MB
+VM (ID: 20) Cpu: 4
+VM (ID: 20) Bw: 1000
+VM (ID: 20) Storage: 40000
+VM (ID: 20) Mips: 4000
+VM (ID: 21) Memory: 512 MB
+VM (ID: 21) Cpu: 1
+VM (ID: 21) Bw: 1000
+VM (ID: 21) Storage: 10000
+VM (ID: 21) Mips: 1000
+VM (ID: 22) Memory: 1024 MB
+VM (ID: 22) Cpu: 2
+VM (ID: 22) Bw: 1000
+VM (ID: 22) Storage: 20000
+VM (ID: 22) Mips: 2000
+VM (ID: 23) Memory: 2048 MB
+VM (ID: 23) Cpu: 4
+VM (ID: 23) Bw: 1000
+VM (ID: 23) Storage: 40000
+VM (ID: 23) Mips: 4000
+VM (ID: 24) Memory: 512 MB
+VM (ID: 24) Cpu: 1
+VM (ID: 24) Bw: 1000
+VM (ID: 24) Storage: 10000
+VM (ID: 24) Mips: 1000
+VM (ID: 25) Memory: 1024 MB
+VM (ID: 25) Cpu: 2
+VM (ID: 25) Bw: 1000
+VM (ID: 25) Storage: 20000
+VM (ID: 25) Mips: 2000
+VM (ID: 26) Memory: 2048 MB
+VM (ID: 26) Cpu: 4
+VM (ID: 26) Bw: 1000
+VM (ID: 26) Storage: 40000
+VM (ID: 26) Mips: 4000
+VM (ID: 27) Memory: 512 MB
+VM (ID: 27) Cpu: 1
+VM (ID: 27) Bw: 1000
+VM (ID: 27) Storage: 10000
+VM (ID: 27) Mips: 1000
+VM (ID: 28) Memory: 1024 MB
+VM (ID: 28) Cpu: 2
+VM (ID: 28) Bw: 1000
+VM (ID: 28) Storage: 20000
+VM (ID: 28) Mips: 2000
+VM (ID: 29) Memory: 2048 MB
+VM (ID: 29) Cpu: 4
+VM (ID: 29) Bw: 1000
+VM (ID: 29) Storage: 40000
+VM (ID: 29) Mips: 4000
+VM (ID: 30) Memory: 512 MB
+VM (ID: 30) Cpu: 1
+VM (ID: 30) Bw: 1000
+VM (ID: 30) Storage: 10000
+VM (ID: 30) Mips: 1000
+  Creating Host #0 with 16 PEs @ 40000 MIPS each.
+  Creating Host #1 with 8 PEs @ 20000 MIPS each.
+Creating new broker DC6-Broker
+Performance-Optimized Load Balancer Initialized:
+  Total VMs: 0
+  Idle Threshold: 300.0s
+  Initial Optimal VMs: 1
+Enhanced Load Balancer for DC6
+VM (ID: 0) Memory: 512 MB
+VM (ID: 0) Cpu: 1
+VM (ID: 0) Bw: 1000
+VM (ID: 0) Storage: 10000
+VM (ID: 0) Mips: 1000
+VM (ID: 1) Memory: 1024 MB
+VM (ID: 1) Cpu: 2
+VM (ID: 1) Bw: 1000
+VM (ID: 1) Storage: 20000
+VM (ID: 1) Mips: 2000
+VM (ID: 2) Memory: 2048 MB
+VM (ID: 2) Cpu: 4
+VM (ID: 2) Bw: 1000
+VM (ID: 2) Storage: 40000
+VM (ID: 2) Mips: 4000
+VM (ID: 3) Memory: 512 MB
+VM (ID: 3) Cpu: 1
+VM (ID: 3) Bw: 1000
+VM (ID: 3) Storage: 10000
+VM (ID: 3) Mips: 1000
+VM (ID: 4) Memory: 1024 MB
+VM (ID: 4) Cpu: 2
+VM (ID: 4) Bw: 1000
+VM (ID: 4) Storage: 20000
+VM (ID: 4) Mips: 2000
+VM (ID: 5) Memory: 2048 MB
+VM (ID: 5) Cpu: 4
+VM (ID: 5) Bw: 1000
+VM (ID: 5) Storage: 40000
+VM (ID: 5) Mips: 4000
+VM (ID: 6) Memory: 512 MB
+VM (ID: 6) Cpu: 1
+VM (ID: 6) Bw: 1000
+VM (ID: 6) Storage: 10000
+VM (ID: 6) Mips: 1000
+VM (ID: 7) Memory: 1024 MB
+VM (ID: 7) Cpu: 2
+VM (ID: 7) Bw: 1000
+VM (ID: 7) Storage: 20000
+VM (ID: 7) Mips: 2000
+VM (ID: 8) Memory: 2048 MB
+VM (ID: 8) Cpu: 4
+VM (ID: 8) Bw: 1000
+VM (ID: 8) Storage: 40000
+VM (ID: 8) Mips: 4000
+VM (ID: 9) Memory: 512 MB
+VM (ID: 9) Cpu: 1
+VM (ID: 9) Bw: 1000
+VM (ID: 9) Storage: 10000
+VM (ID: 9) Mips: 1000
+VM (ID: 10) Memory: 1024 MB
+VM (ID: 10) Cpu: 2
+VM (ID: 10) Bw: 1000
+VM (ID: 10) Storage: 20000
+VM (ID: 10) Mips: 2000
+VM (ID: 11) Memory: 2048 MB
+VM (ID: 11) Cpu: 4
+VM (ID: 11) Bw: 1000
+VM (ID: 11) Storage: 40000
+VM (ID: 11) Mips: 4000
+VM (ID: 12) Memory: 512 MB
+VM (ID: 12) Cpu: 1
+VM (ID: 12) Bw: 1000
+VM (ID: 12) Storage: 10000
+VM (ID: 12) Mips: 1000
+VM (ID: 13) Memory: 1024 MB
+VM (ID: 13) Cpu: 2
+VM (ID: 13) Bw: 1000
+VM (ID: 13) Storage: 20000
+VM (ID: 13) Mips: 2000
+VM (ID: 14) Memory: 2048 MB
+VM (ID: 14) Cpu: 4
+VM (ID: 14) Bw: 1000
+VM (ID: 14) Storage: 40000
+VM (ID: 14) Mips: 4000
+VM (ID: 15) Memory: 512 MB
+VM (ID: 15) Cpu: 1
+VM (ID: 15) Bw: 1000
+VM (ID: 15) Storage: 10000
+VM (ID: 15) Mips: 1000
+  Creating Host #0 with 16 PEs @ 40000 MIPS each.
+  Creating Host #1 with 8 PEs @ 20000 MIPS each.
+Creating new broker DC5-Broker
+Performance-Optimized Load Balancer Initialized:
+  Total VMs: 0
+  Idle Threshold: 300.0s
+  Initial Optimal VMs: 1
+Enhanced Load Balancer for DC5
+VM (ID: 0) Memory: 512 MB
+VM (ID: 0) Cpu: 1
+VM (ID: 0) Bw: 1000
+VM (ID: 0) Storage: 10000
+VM (ID: 0) Mips: 1000
+VM (ID: 1) Memory: 1024 MB
+VM (ID: 1) Cpu: 2
+VM (ID: 1) Bw: 1000
+VM (ID: 1) Storage: 20000
+VM (ID: 1) Mips: 2000
+VM (ID: 2) Memory: 2048 MB
+VM (ID: 2) Cpu: 4
+VM (ID: 2) Bw: 1000
+VM (ID: 2) Storage: 40000
+VM (ID: 2) Mips: 4000
+VM (ID: 3) Memory: 512 MB
+VM (ID: 3) Cpu: 1
+VM (ID: 3) Bw: 1000
+VM (ID: 3) Storage: 10000
+VM (ID: 3) Mips: 1000
+VM (ID: 4) Memory: 1024 MB
+VM (ID: 4) Cpu: 2
+VM (ID: 4) Bw: 1000
+VM (ID: 4) Storage: 20000
+VM (ID: 4) Mips: 2000
+VM (ID: 5) Memory: 2048 MB
+VM (ID: 5) Cpu: 4
+VM (ID: 5) Bw: 1000
+VM (ID: 5) Storage: 40000
+VM (ID: 5) Mips: 4000
+VM (ID: 6) Memory: 512 MB
+VM (ID: 6) Cpu: 1
+VM (ID: 6) Bw: 1000
+VM (ID: 6) Storage: 10000
+VM (ID: 6) Mips: 1000
+VM (ID: 7) Memory: 1024 MB
+VM (ID: 7) Cpu: 2
+VM (ID: 7) Bw: 1000
+VM (ID: 7) Storage: 20000
+VM (ID: 7) Mips: 2000
+VM (ID: 8) Memory: 2048 MB
+VM (ID: 8) Cpu: 4
+VM (ID: 8) Bw: 1000
+VM (ID: 8) Storage: 40000
+VM (ID: 8) Mips: 4000
+VM (ID: 9) Memory: 512 MB
+VM (ID: 9) Cpu: 1
+VM (ID: 9) Bw: 1000
+VM (ID: 9) Storage: 10000
+VM (ID: 9) Mips: 1000
+VM (ID: 10) Memory: 1024 MB
+VM (ID: 10) Cpu: 2
+VM (ID: 10) Bw: 1000
+VM (ID: 10) Storage: 20000
+VM (ID: 10) Mips: 2000
+VM (ID: 11) Memory: 2048 MB
+VM (ID: 11) Cpu: 4
+VM (ID: 11) Bw: 1000
+VM (ID: 11) Storage: 40000
+VM (ID: 11) Mips: 4000
+VM (ID: 12) Memory: 512 MB
+VM (ID: 12) Cpu: 1
+VM (ID: 12) Bw: 1000
+VM (ID: 12) Storage: 10000
+VM (ID: 12) Mips: 1000
+VM (ID: 13) Memory: 1024 MB
+VM (ID: 13) Cpu: 2
+VM (ID: 13) Bw: 1000
+VM (ID: 13) Storage: 20000
+VM (ID: 13) Mips: 2000
+0.0 Creating new user base UB1
+0.0 Creating new user base UB2
+0.0 Creating new user base UB3
+0.0 Creating new user base UB4
+0.0 Creating new user base UB5
+0.0 Creating new user base UB6
+Starting GridSim version 4.2
+Entities started.
+Starting broker 6 name=DC1-Broker
+Starting broker 16 name=DC5-Broker
+Starting broker 12 name=DC4-Broker
+Starting broker 14 name=DC6-Broker
+Starting broker 10 name=DC3-Broker
+Starting broker 8 name=DC2-Broker
+Starting internet 29
+Starting user base 27 UB6
+Starting user base 25 UB5
+Starting user base 19 UB2
+Starting user base 21 UB3
+Starting user base 23 UB4
+Starting user base 17 UB1
+5.0: DC1-Broker: Cloud Resource List received with 6 resource(s)
+5.0: DC2-Broker: Cloud Resource List received with 6 resource(s)
+5.0: DC6-Broker: Cloud Resource List received with 6 resource(s)
+5.0: DC3-Broker: Cloud Resource List received with 6 resource(s)
+5.0: DC5-Broker: Cloud Resource List received with 6 resource(s)
+5.0: DC4-Broker: Cloud Resource List received with 6 resource(s)
+5.0: DC1-Broker: Trying to Create VM #0
+5.0: DC6-Broker: Trying to Create VM #0
+5.0: DC5-Broker: Trying to Create VM #0
+5.0: DC2-Broker: Trying to Create VM #0
+5.0: DC4-Broker: Trying to Create VM #0
+5.0: DC3-Broker: Trying to Create VM #0
+5.0: DC4-Broker: Trying to Create VM #1
+5.0: DC3-Broker: Trying to Create VM #1
+5.0: DC2-Broker: Trying to Create VM #1
+5.0: DC5-Broker: Trying to Create VM #1
+5.0: DC6-Broker: Trying to Create VM #1
+5.0: DC5-Broker: Trying to Create VM #2
+5.0: DC1-Broker: Trying to Create VM #1
+5.0: DC5-Broker: Trying to Create VM #3
+5.0: DC1-Broker: Trying to Create VM #2
+5.0: DC5-Broker: Trying to Create VM #4
+5.0: DC1-Broker: Trying to Create VM #3
+5.0: DC5-Broker: Trying to Create VM #5
+5.0: DC6-Broker: Trying to Create VM #2
+5.0: DC2-Broker: Trying to Create VM #2
+5.0: DC3-Broker: Trying to Create VM #2
+5.0: DC2-Broker: Trying to Create VM #3
+5.0: DC4-Broker: Trying to Create VM #2
+5.0: DC2-Broker: Trying to Create VM #4
+5.0: DC4-Broker: Trying to Create VM #3
+5.0: DC3-Broker: Trying to Create VM #3
+5.0: DC6-Broker: Trying to Create VM #3
+5.0: DC5-Broker: Trying to Create VM #6
+5.0: DC6-Broker: Trying to Create VM #4
+5.0: DC1-Broker: Trying to Create VM #4
+5.0: DC6-Broker: Trying to Create VM #5
+5.0: DC5-Broker: Trying to Create VM #7
+5.0: DC3-Broker: Trying to Create VM #4
+5.0: DC4-Broker: Trying to Create VM #4
+5.0: DC3-Broker: Trying to Create VM #5
+5.0: DC2-Broker: Trying to Create VM #5
+5.0: DC3-Broker: Trying to Create VM #6
+5.0: DC4-Broker: Trying to Create VM #5
+5.0: DC5-Broker: Trying to Create VM #8
+5.0: DC4-Broker: Trying to Create VM #6
+5.0: DC6-Broker: Trying to Create VM #6
+5.0: DC1-Broker: Trying to Create VM #5
+5.0: DC6-Broker: Trying to Create VM #7
+5.0: DC4-Broker: Trying to Create VM #7
+5.0: DC6-Broker: Trying to Create VM #8
+5.0: DC5-Broker: Trying to Create VM #9
+5.0: DC3-Broker: Trying to Create VM #7
+5.0: DC5-Broker: Trying to Create VM #10
+5.0: DC2-Broker: Trying to Create VM #6
+5.0: DC5-Broker: Trying to Create VM #11
+5.0: DC3-Broker: Trying to Create VM #8
+5.0: DC5-Broker: Trying to Create VM #12
+5.0: DC3-Broker: Trying to Create VM #9
+5.0: DC6-Broker: Trying to Create VM #9
+5.0: DC4-Broker: Trying to Create VM #8
+5.0: DC6-Broker: Trying to Create VM #10
+5.0: DC1-Broker: Trying to Create VM #6
+5.0: DC6-Broker: Trying to Create VM #11
+5.0: DC4-Broker: Trying to Create VM #9
+5.0: DC1-Broker: Trying to Create VM #7
+5.0: DC3-Broker: Trying to Create VM #10
+5.0: DC4-Broker: Trying to Create VM #10
+5.0: DC5-Broker: Trying to Create VM #13
+5.0: DC4-Broker: Trying to Create VM #11
+5.0: DC2-Broker: Trying to Create VM #7
+5.0: DC4-Broker: Trying to Create VM #12
+5.0: DC3-Broker: Trying to Create VM #11
+5.0: DC4-Broker: Trying to Create VM #13
+5.0: DC1-Broker: Trying to Create VM #8
+5.0: DC3-Broker: Trying to Create VM #12
+5.0: DC6-Broker: Trying to Create VM #12
+5.0: DC1-Broker: Trying to Create VM #9
+5.0: DC4-Broker: Trying to Create VM #14
+5.0: DC2-Broker: Trying to Create VM #8
+5.0: DC4-Broker: Trying to Create VM #15
+5.0: DC1-Broker: Trying to Create VM #10
+5.0: DC6-Broker: Trying to Create VM #13
+5.0: DC1-Broker: Trying to Create VM #11
+5.0: DC3-Broker: Trying to Create VM #13
+5.0: DC1-Broker: Trying to Create VM #12
+5.0: DC6-Broker: Trying to Create VM #14
+5.0: DC3-Broker: Trying to Create VM #14
+5.0: DC4-Broker: Trying to Create VM #16
+5.0: DC2-Broker: Trying to Create VM #9
+5.0: DC3-Broker: Trying to Create VM #15
+5.0: DC2-Broker: Trying to Create VM #10
+5.0: DC6-Broker: Trying to Create VM #15
+5.0: DC1-Broker: Trying to Create VM #13
+5.0: DC2-Broker: Trying to Create VM #11
+5.0: DC3-Broker: Trying to Create VM #16
+5.0: DC2-Broker: Trying to Create VM #12
+5.0: DC4-Broker: Trying to Create VM #17
+5.0: DC1-Broker: Trying to Create VM #14
+5.0: DC3-Broker: Trying to Create VM #17
+5.0: DC2-Broker: Trying to Create VM #13
+5.0: DC4-Broker: Trying to Create VM #18
+5.0: DC3-Broker: Trying to Create VM #18
+5.0: DC1-Broker: Trying to Create VM #15
+5.0: DC2-Broker: Trying to Create VM #14
+5.0: DC2-Broker: Trying to Create VM #15
+5.0: DC1-Broker: Trying to Create VM #16
+5.0: DC2-Broker: Trying to Create VM #16
+5.0: DC4-Broker: Trying to Create VM #19
+5.0: DC1-Broker: Trying to Create VM #17
+5.0: DC3-Broker: Trying to Create VM #19
+5.0: DC4-Broker: Trying to Create VM #20
+5.0: DC1-Broker: Trying to Create VM #18
+5.0: DC2-Broker: Trying to Create VM #17
+5.0: DC3-Broker: Trying to Create VM #20
+5.0: DC1-Broker: Trying to Create VM #19
+5.0: DC4-Broker: Trying to Create VM #21
+5.0: DC2-Broker: Trying to Create VM #18
+5.0: DC3-Broker: Trying to Create VM #21
+5.0: DC1-Broker: Trying to Create VM #20
+5.0: DC2-Broker: Trying to Create VM #19
+5.0: DC3-Broker: Trying to Create VM #22
+5.0: DC4-Broker: Trying to Create VM #22
+5.0: DC2-Broker: Trying to Create VM #20
+5.0: DC3-Broker: Trying to Create VM #23
+5.0: DC4-Broker: Trying to Create VM #23
+5.0: DC4-Broker: Trying to Create VM #24
+5.0: DC1-Broker: Trying to Create VM #21
+5.0: DC4-Broker: Trying to Create VM #25
+5.0: DC1-Broker: Trying to Create VM #22
+5.0: DC4-Broker: Trying to Create VM #26
+5.0: DC1-Broker: Trying to Create VM #23
+5.0: DC4-Broker: Trying to Create VM #27
+5.0: DC1-Broker: Trying to Create VM #24
+5.0: DC4-Broker: Trying to Create VM #28
+5.0: DC1-Broker: Trying to Create VM #25
+5.0: DC4-Broker: Trying to Create VM #29
+5.0: DC1-Broker: Trying to Create VM #26
+5.0: DC4-Broker: Trying to Create VM #30
+5.0: DC1-Broker: Trying to Create VM #27
+5.0: DC1-Broker: Trying to Create VM #28
+5.0: DC1-Broker: Trying to Create VM #29
+5.0: DC1-Broker: Trying to Create VM #30
+5.0: DC1-Broker: Trying to Create VM #31
+5.0: DC1-Broker: Trying to Create VM #32
+5.0: DC1-Broker: Trying to Create VM #33
+5.0: DC1-Broker: Trying to Create VM #34
+5.0: DC1-Broker: Trying to Create VM #35
+5.0: DC1-Broker: Trying to Create VM #36
+5.0: DC1-Broker: Trying to Create VM #37
+5.0: DC1-Broker: Trying to Create VM #38
+5.0: DC1-Broker: Trying to Create VM #39
+5.0: DC1-Broker: Trying to Create VM #40
+5.0: DC1-Broker: Trying to Create VM #41
+5.0: DC1-Broker: Trying to Create VM #42
+5.0: DC1-Broker: Trying to Create VM #43
+5.0: DC1-Broker: Trying to Create VM #44
+5.0: DC1-Broker: Trying to Create VM #45
+5.0: DC1-Broker: Trying to Create VM #46
+5.0: DC1-Broker: Trying to Create VM #47
+5.0: DC1-Broker: Trying to Create VM #48
+5.0: DC1-Broker: Trying to Create VM #49
+VM 0 created successfully in DC1-Broker
+VM 0 created successfully in DC4-Broker
+VM 0 created successfully in DC3-Broker
+VM 0 created successfully in DC5-Broker
+VM 0 created successfully in DC6-Broker
+VM 0 created successfully in DC2-Broker
+VM 1 created successfully in DC6-Broker
+VM 1 created successfully in DC1-Broker
+VM 1 created successfully in DC2-Broker
+VM 1 created successfully in DC5-Broker
+VM 1 created successfully in DC3-Broker
+VM 2 created successfully in DC5-Broker
+VM 2 created successfully in DC6-Broker
+VM 1 created successfully in DC4-Broker
+VM 2 created successfully in DC3-Broker
+VM 2 created successfully in DC1-Broker
+VM 2 created successfully in DC2-Broker
+VM 2 created successfully in DC4-Broker
+VM 3 created successfully in DC6-Broker
+VM 3 created successfully in DC3-Broker
+VM 3 created successfully in DC5-Broker
+VM 3 created successfully in DC2-Broker
+VM 4 created successfully in DC6-Broker
+VM 3 created successfully in DC4-Broker
+VM 3 created successfully in DC1-Broker
+VM 4 created successfully in DC3-Broker
+VM 5 created successfully in DC6-Broker
+VM 4 created successfully in DC5-Broker
+VM 4 created successfully in DC4-Broker
+VM 4 created successfully in DC2-Broker
+VM 5 created successfully in DC3-Broker
+VM 6 created successfully in DC6-Broker
+VM 4 created successfully in DC1-Broker
+VM 5 created successfully in DC5-Broker
+VM 5 created successfully in DC4-Broker
+VM 5 created successfully in DC2-Broker
+VM 6 created successfully in DC3-Broker
+VM 6 created successfully in DC5-Broker
+VM 5 created successfully in DC1-Broker
+VM 7 created successfully in DC6-Broker
+VM 6 created successfully in DC2-Broker
+VM 6 created successfully in DC4-Broker
+VM 7 created successfully in DC5-Broker
+VM 6 created successfully in DC1-Broker
+VM 8 created successfully in DC6-Broker
+VM 7 created successfully in DC3-Broker
+VM 7 created successfully in DC2-Broker
+VM 7 created successfully in DC4-Broker
+VM 7 created successfully in DC1-Broker
+VM 9 created successfully in DC6-Broker
+VM 8 created successfully in DC5-Broker
+VM 8 created successfully in DC3-Broker
+VM 8 created successfully in DC2-Broker
+VM 8 created successfully in DC4-Broker
+VM 8 created successfully in DC1-Broker
+VM 10 created successfully in DC6-Broker
+VM 9 created successfully in DC5-Broker
+VM 9 created successfully in DC3-Broker
+VM 9 created successfully in DC2-Broker
+VM 9 created successfully in DC4-Broker
+VM 9 created successfully in DC1-Broker
+VM 11 created successfully in DC6-Broker
+VM 10 created successfully in DC3-Broker
+VM 10 created successfully in DC5-Broker
+VM 10 created successfully in DC4-Broker
+VM 10 created successfully in DC2-Broker
+VM 10 created successfully in DC1-Broker
+VM 11 created successfully in DC3-Broker
+VM 12 created successfully in DC6-Broker
+VM 11 created successfully in DC5-Broker
+VM 11 created successfully in DC4-Broker
+VM 11 created successfully in DC2-Broker
+VM 11 created successfully in DC1-Broker
+VM 12 created successfully in DC3-Broker
+VM 12 created successfully in DC4-Broker
+VM 13 created successfully in DC6-Broker
+VM 12 created successfully in DC5-Broker
+VM 12 created successfully in DC2-Broker
+VM 12 created successfully in DC1-Broker
+VM 13 created successfully in DC3-Broker
+VM 13 created successfully in DC4-Broker
+VM 13 created successfully in DC5-Broker
+VM 14 created successfully in DC6-Broker
+VM 13 created successfully in DC1-Broker
+VM 14 created successfully in DC3-Broker
+VM 13 created successfully in DC2-Broker
+VM 14 created successfully in DC4-Broker
+VM 15 created successfully in DC6-Broker
+VM 14 created successfully in DC1-Broker
+VM 14 created successfully in DC2-Broker
+VM 15 created successfully in DC3-Broker
+VM 15 created successfully in DC4-Broker
+VM 15 created successfully in DC2-Broker
+VM 15 created successfully in DC1-Broker
+VM 16 created successfully in DC3-Broker
+VM 16 created successfully in DC4-Broker
+VM 16 created successfully in DC2-Broker
+VM 17 created successfully in DC3-Broker
+VM 17 created successfully in DC4-Broker
+VM 16 created successfully in DC1-Broker
+VM 17 created successfully in DC2-Broker
+VM 18 created successfully in DC3-Broker
+VM 18 created successfully in DC4-Broker
+VM 18 created successfully in DC2-Broker
+VM 17 created successfully in DC1-Broker
+VM 19 created successfully in DC3-Broker
+VM 19 created successfully in DC4-Broker
+VM 19 created successfully in DC2-Broker
+VM 18 created successfully in DC1-Broker
+VM 20 created successfully in DC3-Broker
+VM 20 created successfully in DC4-Broker
+VM 20 created successfully in DC2-Broker
+VM 19 created successfully in DC1-Broker
+VM 21 created successfully in DC3-Broker
+VM 21 created successfully in DC4-Broker
+VM 20 created successfully in DC1-Broker
+VM 22 created successfully in DC3-Broker
+VM 22 created successfully in DC4-Broker
+VM 21 created successfully in DC1-Broker
+VM 23 created successfully in DC3-Broker
+VM 23 created successfully in DC4-Broker
+VM 22 created successfully in DC1-Broker
+VM 24 created successfully in DC4-Broker
+VM 23 created successfully in DC1-Broker
+VM 25 created successfully in DC4-Broker
+VM 24 created successfully in DC1-Broker
+VM 26 created successfully in DC4-Broker
+VM 25 created successfully in DC1-Broker
+VM 27 created successfully in DC4-Broker
+VM 26 created successfully in DC1-Broker
+VM 28 created successfully in DC4-Broker
+VM 27 created successfully in DC1-Broker
+VM 29 created successfully in DC4-Broker
+VM 28 created successfully in DC1-Broker
+VM 30 created successfully in DC4-Broker
+VM 29 created successfully in DC1-Broker
+VM 30 created successfully in DC1-Broker
+VM 31 created successfully in DC1-Broker
+VM 32 created successfully in DC1-Broker
+VM 33 created successfully in DC1-Broker
+VM 34 created successfully in DC1-Broker
+VM 35 created successfully in DC1-Broker
+VM 36 created successfully in DC1-Broker
+VM 37 created successfully in DC1-Broker
+VM 38 created successfully in DC1-Broker
+VM 39 created successfully in DC1-Broker
+VM 40 created successfully in DC1-Broker
+VM 41 created successfully in DC1-Broker
+VM 42 created successfully in DC1-Broker
+VM 43 created successfully in DC1-Broker
+VM 44 created successfully in DC1-Broker
+VM 45 created successfully in DC1-Broker
+VM 46 created successfully in DC1-Broker
+VM 47 created successfully in DC1-Broker
+VM 48 created successfully in DC1-Broker
+VM 49 created successfully in DC1-Broker
+Performance-Optimized Load Balancer Initialized:
+  Total VMs: 1
+  Idle Threshold: 300.0s
+  Initial Optimal VMs: 1
+Performance-Optimized Load Balancer Initialized:
+  Total VMs: 2
+  Idle Threshold: 300.0s
+  Initial Optimal VMs: 2
+Performance-Optimized Load Balancer Initialized:
+  Total VMs: 3
+  Idle Threshold: 300.0s
+  Initial Optimal VMs: 3
+Performance-Optimized Load Balancer Initialized:
+  Total VMs: 1
+  Idle Threshold: 300.0s
+  Initial Optimal VMs: 1
+Performance-Optimized Load Balancer Initialized:
+  Total VMs: 4
+  Idle Threshold: 300.0s
+  Initial Optimal VMs: 3
+Performance-Optimized Load Balancer Initialized:
+  Total VMs: 1
+  Idle Threshold: 300.0s
+  Initial Optimal VMs: 1
+Performance-Optimized Load Balancer Initialized:
+  Total VMs: 5
+  Idle Threshold: 300.0s
+  Initial Optimal VMs: 4
+Performance-Optimized Load Balancer Initialized:
+  Total VMs: 2
+  Idle Threshold: 300.0s
+  Initial Optimal VMs: 2
+Performance-Optimized Load Balancer Initialized:
+  Total VMs: 1
+  Idle Threshold: 300.0s
+  Initial Optimal VMs: 1
+Performance-Optimized Load Balancer Initialized:
+  Total VMs: 2
+  Idle Threshold: 300.0s
+  Initial Optimal VMs: 2
+Performance-Optimized Load Balancer Initialized:
+  Total VMs: 2
+  Idle Threshold: 300.0s
+  Initial Optimal VMs: 2
+Performance-Optimized Load Balancer Initialized:
+  Total VMs: 3
+  Idle Threshold: 300.0s
+  Initial Optimal VMs: 3
+Performance-Optimized Load Balancer Initialized:
+  Total VMs: 6
+  Idle Threshold: 300.0s
+  Initial Optimal VMs: 5
+Performance-Optimized Load Balancer Initialized:
+  Total VMs: 1
+  Idle Threshold: 300.0s
+  Initial Optimal VMs: 1
+Performance-Optimized Load Balancer Initialized:
+  Total VMs: 4
+  Idle Threshold: 300.0s
+  Initial Optimal VMs: 3
+Performance-Optimized Load Balancer Initialized:
+  Total VMs: 3
+  Idle Threshold: 300.0s
+  Initial Optimal VMs: 3
+Performance-Optimized Load Balancer Initialized:
+  Total VMs: 3
+  Idle Threshold: 300.0s
+  Initial Optimal VMs: 3
+Performance-Optimized Load Balancer Initialized:
+  Total VMs: 2
+  Idle Threshold: 300.0s
+  Initial Optimal VMs: 2
+Performance-Optimized Load Balancer Initialized:
+  Total VMs: 1
+  Idle Threshold: 300.0s
+  Initial Optimal VMs: 1
+Performance-Optimized Load Balancer Initialized:
+  Total VMs: 4
+  Idle Threshold: 300.0s
+  Initial Optimal VMs: 3
+Performance-Optimized Load Balancer Initialized:
+  Total VMs: 3
+  Idle Threshold: 300.0s
+  Initial Optimal VMs: 3
+Performance-Optimized Load Balancer Initialized:
+  Total VMs: 5
+  Idle Threshold: 300.0s
+  Initial Optimal VMs: 4
+Performance-Optimized Load Balancer Initialized:
+  Total VMs: 4
+  Idle Threshold: 300.0s
+  Initial Optimal VMs: 3
+Performance-Optimized Load Balancer Initialized:
+  Total VMs: 6
+  Idle Threshold: 300.0s
+  Initial Optimal VMs: 5
+Performance-Optimized Load Balancer Initialized:
+  Total VMs: 4
+  Idle Threshold: 300.0s
+  Initial Optimal VMs: 3
+Performance-Optimized Load Balancer Initialized:
+  Total VMs: 7
+  Idle Threshold: 300.0s
+  Initial Optimal VMs: 6
+Performance-Optimized Load Balancer Initialized:
+  Total VMs: 7
+  Idle Threshold: 300.0s
+  Initial Optimal VMs: 6
+Performance-Optimized Load Balancer Initialized:
+  Total VMs: 8
+  Idle Threshold: 300.0s
+  Initial Optimal VMs: 7
+Performance-Optimized Load Balancer Initialized:
+  Total VMs: 9
+  Idle Threshold: 300.0s
+  Initial Optimal VMs: 8
+Performance-Optimized Load Balancer Initialized:
+  Total VMs: 8
+  Idle Threshold: 300.0s
+  Initial Optimal VMs: 7
+Performance-Optimized Load Balancer Initialized:
+  Total VMs: 5
+  Idle Threshold: 300.0s
+  Initial Optimal VMs: 4
+Performance-Optimized Load Balancer Initialized:
+  Total VMs: 5
+  Idle Threshold: 300.0s
+  Initial Optimal VMs: 4
+Performance-Optimized Load Balancer Initialized:
+  Total VMs: 10
+  Idle Threshold: 300.0s
+  Initial Optimal VMs: 9
+Performance-Optimized Load Balancer Initialized:
+  Total VMs: 9
+  Idle Threshold: 300.0s
+  Initial Optimal VMs: 8
+Performance-Optimized Load Balancer Initialized:
+  Total VMs: 11
+  Idle Threshold: 300.0s
+  Initial Optimal VMs: 9
+Performance-Optimized Load Balancer Initialized:
+  Total VMs: 12
+  Idle Threshold: 300.0s
+  Initial Optimal VMs: 10
+Performance-Optimized Load Balancer Initialized:
+  Total VMs: 10
+  Idle Threshold: 300.0s
+  Initial Optimal VMs: 9
+Performance-Optimized Load Balancer Initialized:
+  Total VMs: 13
+  Idle Threshold: 300.0s
+  Initial Optimal VMs: 11
+Performance-Optimized Load Balancer Initialized:
+  Total VMs: 14
+  Idle Threshold: 300.0s
+  Initial Optimal VMs: 12
+Performance-Optimized Load Balancer Initialized:
+  Total VMs: 2
+  Idle Threshold: 300.0s
+  Initial Optimal VMs: 2
+Performance-Optimized Load Balancer Initialized:
+  Total VMs: 6
+  Idle Threshold: 300.0s
+  Initial Optimal VMs: 5
+Performance-Optimized Load Balancer Initialized:
+  Total VMs: 15
+  Idle Threshold: 300.0s
+  Initial Optimal VMs: 13
+Performance-Optimized Load Balancer Initialized:
+  Total VMs: 7
+  Idle Threshold: 300.0s
+  Initial Optimal VMs: 6
+Performance-Optimized Load Balancer Initialized:
+  Total VMs: 3
+  Idle Threshold: 300.0s
+  Initial Optimal VMs: 3
+Performance-Optimized Load Balancer Initialized:
+  Total VMs: 5
+  Idle Threshold: 300.0s
+  Initial Optimal VMs: 4
+Performance-Optimized Load Balancer Initialized:
+  Total VMs: 11
+  Idle Threshold: 300.0s
+  Initial Optimal VMs: 9
+Performance-Optimized Load Balancer Initialized:
+  Total VMs: 8
+  Idle Threshold: 300.0s
+  Initial Optimal VMs: 7
+Performance-Optimized Load Balancer Initialized:
+  Total VMs: 12
+  Idle Threshold: 300.0s
+  Initial Optimal VMs: 10
+Performance-Optimized Load Balancer Initialized:
+  Total VMs: 4
+  Idle Threshold: 300.0s
+  Initial Optimal VMs: 3
+Performance-Optimized Load Balancer Initialized:
+  Total VMs: 6
+  Idle Threshold: 300.0s
+  Initial Optimal VMs: 5
+Performance-Optimized Load Balancer Initialized:
+  Total VMs: 16
+  Idle Threshold: 300.0s
+  Initial Optimal VMs: 14
+Performance-Optimized Load Balancer Initialized:
+  Total VMs: 5
+  Idle Threshold: 300.0s
+  Initial Optimal VMs: 4
+Performance-Optimized Load Balancer Initialized:
+  Total VMs: 13
+  Idle Threshold: 300.0s
+  Initial Optimal VMs: 11
+Performance-Optimized Load Balancer Initialized:
+  Total VMs: 17
+  Idle Threshold: 300.0s
+  Initial Optimal VMs: 14
+Performance-Optimized Load Balancer Initialized:
+  Total VMs: 7
+  Idle Threshold: 300.0s
+  Initial Optimal VMs: 6
+Performance-Optimized Load Balancer Initialized:
+  Total VMs: 14
+  Idle Threshold: 300.0s
+  Initial Optimal VMs: 12
+Performance-Optimized Load Balancer Initialized:
+  Total VMs: 18
+  Idle Threshold: 300.0s
+  Initial Optimal VMs: 15
+Performance-Optimized Load Balancer Initialized:
+  Total VMs: 6
+  Idle Threshold: 300.0s
+  Initial Optimal VMs: 5
+Performance-Optimized Load Balancer Initialized:
+  Total VMs: 9
+  Idle Threshold: 300.0s
+  Initial Optimal VMs: 8
+Performance-Optimized Load Balancer Initialized:
+  Total VMs: 8
+  Idle Threshold: 300.0s
+  Initial Optimal VMs: 7
+Performance-Optimized Load Balancer Initialized:
+  Total VMs: 6
+  Idle Threshold: 300.0s
+  Initial Optimal VMs: 5
+Performance-Optimized Load Balancer Initialized:
+  Total VMs: 15
+  Idle Threshold: 300.0s
+  Initial Optimal VMs: 13
+Performance-Optimized Load Balancer Initialized:
+  Total VMs: 9
+  Idle Threshold: 300.0s
+  Initial Optimal VMs: 8
+Performance-Optimized Load Balancer Initialized:
+  Total VMs: 19
+  Idle Threshold: 300.0s
+  Initial Optimal VMs: 16
+Performance-Optimized Load Balancer Initialized:
+  Total VMs: 20
+  Idle Threshold: 300.0s
+  Initial Optimal VMs: 17
+Performance-Optimized Load Balancer Initialized:
+  Total VMs: 16
+  Idle Threshold: 300.0s
+  Initial Optimal VMs: 14
+Performance-Optimized Load Balancer Initialized:
+  Total VMs: 7
+  Idle Threshold: 300.0s
+  Initial Optimal VMs: 6
+Performance-Optimized Load Balancer Initialized:
+  Total VMs: 17
+  Idle Threshold: 300.0s
+  Initial Optimal VMs: 14
+Performance-Optimized Load Balancer Initialized:
+  Total VMs: 10
+  Idle Threshold: 300.0s
+  Initial Optimal VMs: 9
+Performance-Optimized Load Balancer Initialized:
+  Total VMs: 21
+  Idle Threshold: 300.0s
+  Initial Optimal VMs: 18
+Performance-Optimized Load Balancer Initialized:
+  Total VMs: 22
+  Idle Threshold: 300.0s
+  Initial Optimal VMs: 19
+Performance-Optimized Load Balancer Initialized:
+  Total VMs: 18
+  Idle Threshold: 300.0s
+  Initial Optimal VMs: 15
+Performance-Optimized Load Balancer Initialized:
+  Total VMs: 23
+  Idle Threshold: 300.0s
+  Initial Optimal VMs: 20
+Performance-Optimized Load Balancer Initialized:
+  Total VMs: 19
+  Idle Threshold: 300.0s
+  Initial Optimal VMs: 16
+Performance-Optimized Load Balancer Initialized:
+  Total VMs: 8
+  Idle Threshold: 300.0s
+  Initial Optimal VMs: 7
+Performance-Optimized Load Balancer Initialized:
+  Total VMs: 20
+  Idle Threshold: 300.0s
+  Initial Optimal VMs: 17
+Performance-Optimized Load Balancer Initialized:
+  Total VMs: 10
+  Idle Threshold: 300.0s
+  Initial Optimal VMs: 9
+Performance-Optimized Load Balancer Initialized:
+  Total VMs: 7
+  Idle Threshold: 300.0s
+  Initial Optimal VMs: 6
+Performance-Optimized Load Balancer Initialized:
+  Total VMs: 21
+  Idle Threshold: 300.0s
+  Initial Optimal VMs: 18
+Performance-Optimized Load Balancer Initialized:
+  Total VMs: 11
+  Idle Threshold: 300.0s
+  Initial Optimal VMs: 9
+Performance-Optimized Load Balancer Initialized:
+  Total VMs: 24
+  Idle Threshold: 300.0s
+  Initial Optimal VMs: 20
+Performance-Optimized Load Balancer Initialized:
+  Total VMs: 11
+  Idle Threshold: 300.0s
+  Initial Optimal VMs: 9
+Performance-Optimized Load Balancer Initialized:
+  Total VMs: 12
+  Idle Threshold: 300.0s
+  Initial Optimal VMs: 10
+Performance-Optimized Load Balancer Initialized:
+  Total VMs: 9
+  Idle Threshold: 300.0s
+  Initial Optimal VMs: 8
+Performance-Optimized Load Balancer Initialized:
+  Total VMs: 13
+  Idle Threshold: 300.0s
+  Initial Optimal VMs: 11
+Performance-Optimized Load Balancer Initialized:
+  Total VMs: 12
+  Idle Threshold: 300.0s
+  Initial Optimal VMs: 10
+Performance-Optimized Load Balancer Initialized:
+  Total VMs: 14
+  Idle Threshold: 300.0s
+  Initial Optimal VMs: 12
+Performance-Optimized Load Balancer Initialized:
+  Total VMs: 8
+  Idle Threshold: 300.0s
+  Initial Optimal VMs: 7
+Performance-Optimized Load Balancer Initialized:
+  Total VMs: 15
+  Idle Threshold: 300.0s
+  Initial Optimal VMs: 13
+Performance-Optimized Load Balancer Initialized:
+  Total VMs: 16
+  Idle Threshold: 300.0s
+  Initial Optimal VMs: 14
+Performance-Optimized Load Balancer Initialized:
+  Total VMs: 22
+  Idle Threshold: 300.0s
+  Initial Optimal VMs: 19
+Performance-Optimized Load Balancer Initialized:
+  Total VMs: 23
+  Idle Threshold: 300.0s
+  Initial Optimal VMs: 20
+Performance-Optimized Load Balancer Initialized:
+  Total VMs: 24
+  Idle Threshold: 300.0s
+  Initial Optimal VMs: 20
+Performance-Optimized Load Balancer Initialized:
+  Total VMs: 9
+  Idle Threshold: 300.0s
+  Initial Optimal VMs: 8
+Performance-Optimized Load Balancer Initialized:
+  Total VMs: 17
+  Idle Threshold: 300.0s
+  Initial Optimal VMs: 14
+Performance-Optimized Load Balancer Initialized:
+  Total VMs: 10
+  Idle Threshold: 300.0s
+  Initial Optimal VMs: 9
+Performance-Optimized Load Balancer Initialized:
+  Total VMs: 25
+  Idle Threshold: 300.0s
+  Initial Optimal VMs: 21
+Performance-Optimized Load Balancer Initialized:
+  Total VMs: 13
+  Idle Threshold: 300.0s
+  Initial Optimal VMs: 11
+Performance-Optimized Load Balancer Initialized:
+  Total VMs: 26
+  Idle Threshold: 300.0s
+  Initial Optimal VMs: 22
+Performance-Optimized Load Balancer Initialized:
+  Total VMs: 27
+  Idle Threshold: 300.0s
+  Initial Optimal VMs: 23
+Performance-Optimized Load Balancer Initialized:
+  Total VMs: 10
+  Idle Threshold: 300.0s
+  Initial Optimal VMs: 9
+Performance-Optimized Load Balancer Initialized:
+  Total VMs: 28
+  Idle Threshold: 300.0s
+  Initial Optimal VMs: 24
+Performance-Optimized Load Balancer Initialized:
+  Total VMs: 14
+  Idle Threshold: 300.0s
+  Initial Optimal VMs: 12
+Performance-Optimized Load Balancer Initialized:
+  Total VMs: 18
+  Idle Threshold: 300.0s
+  Initial Optimal VMs: 15
+Performance-Optimized Load Balancer Initialized:
+  Total VMs: 11
+  Idle Threshold: 300.0s
+  Initial Optimal VMs: 9
+Performance-Optimized Load Balancer Initialized:
+  Total VMs: 15
+  Idle Threshold: 300.0s
+  Initial Optimal VMs: 13
+Performance-Optimized Load Balancer Initialized:
+  Total VMs: 11
+  Idle Threshold: 300.0s
+  Initial Optimal VMs: 9
+Performance-Optimized Load Balancer Initialized:
+  Total VMs: 12
+  Idle Threshold: 300.0s
+  Initial Optimal VMs: 10
+Performance-Optimized Load Balancer Initialized:
+  Total VMs: 13
+  Idle Threshold: 300.0s
+  Initial Optimal VMs: 11
+Performance-Optimized Load Balancer Initialized:
+  Total VMs: 29
+  Idle Threshold: 300.0s
+  Initial Optimal VMs: 25
+Performance-Optimized Load Balancer Initialized:
+  Total VMs: 19
+  Idle Threshold: 300.0s
+  Initial Optimal VMs: 16
+Performance-Optimized Load Balancer Initialized:
+  Total VMs: 16
+  Idle Threshold: 300.0s
+  Initial Optimal VMs: 14
+Performance-Optimized Load Balancer Initialized:
+  Total VMs: 30
+  Idle Threshold: 300.0s
+  Initial Optimal VMs: 26
+Performance-Optimized Load Balancer Initialized:
+  Total VMs: 14
+  Idle Threshold: 300.0s
+  Initial Optimal VMs: 12
+Performance-Optimized Load Balancer Initialized:
+  Total VMs: 12
+  Idle Threshold: 300.0s
+  Initial Optimal VMs: 10
+Performance-Optimized Load Balancer Initialized:
+  Total VMs: 31
+  Idle Threshold: 300.0s
+  Initial Optimal VMs: 26
+Performance-Optimized Load Balancer Initialized:
+  Total VMs: 32
+  Idle Threshold: 300.0s
+  Initial Optimal VMs: 27
+Performance-Optimized Load Balancer Initialized:
+  Total VMs: 20
+  Idle Threshold: 300.0s
+  Initial Optimal VMs: 17
+Performance-Optimized Load Balancer Initialized:
+  Total VMs: 17
+  Idle Threshold: 300.0s
+  Initial Optimal VMs: 14
+Performance-Optimized Load Balancer Initialized:
+  Total VMs: 21
+  Idle Threshold: 300.0s
+  Initial Optimal VMs: 18
+Performance-Optimized Load Balancer Initialized:
+  Total VMs: 33
+  Idle Threshold: 300.0s
+  Initial Optimal VMs: 28
+Performance-Optimized Load Balancer Initialized:
+  Total VMs: 22
+  Idle Threshold: 300.0s
+  Initial Optimal VMs: 19
+Performance-Optimized Load Balancer Initialized:
+  Total VMs: 34
+  Idle Threshold: 300.0s
+  Initial Optimal VMs: 29
+Performance-Optimized Load Balancer Initialized:
+  Total VMs: 35
+  Idle Threshold: 300.0s
+  Initial Optimal VMs: 30
+Performance-Optimized Load Balancer Initialized:
+  Total VMs: 13
+  Idle Threshold: 300.0s
+  Initial Optimal VMs: 11
+Performance-Optimized Load Balancer Initialized:
+  Total VMs: 18
+  Idle Threshold: 300.0s
+  Initial Optimal VMs: 15
+Performance-Optimized Load Balancer Initialized:
+  Total VMs: 14
+  Idle Threshold: 300.0s
+  Initial Optimal VMs: 12
+Performance-Optimized Load Balancer Initialized:
+  Total VMs: 23
+  Idle Threshold: 300.0s
+  Initial Optimal VMs: 20
+Performance-Optimized Load Balancer Initialized:
+  Total VMs: 15
+  Idle Threshold: 300.0s
+  Initial Optimal VMs: 13
+Performance-Optimized Load Balancer Initialized:
+  Total VMs: 36
+  Idle Threshold: 300.0s
+  Initial Optimal VMs: 31
+Performance-Optimized Load Balancer Initialized:
+  Total VMs: 24
+  Idle Threshold: 300.0s
+  Initial Optimal VMs: 20
+Performance-Optimized Load Balancer Initialized:
+  Total VMs: 25
+  Idle Threshold: 300.0s
+  Initial Optimal VMs: 21
+Performance-Optimized Load Balancer Initialized:
+  Total VMs: 19
+  Idle Threshold: 300.0s
+  Initial Optimal VMs: 16
+Performance-Optimized Load Balancer Initialized:
+  Total VMs: 37
+  Idle Threshold: 300.0s
+  Initial Optimal VMs: 31
+Performance-Optimized Load Balancer Initialized:
+  Total VMs: 20
+  Idle Threshold: 300.0s
+  Initial Optimal VMs: 17
+Performance-Optimized Load Balancer Initialized:
+  Total VMs: 26
+  Idle Threshold: 300.0s
+  Initial Optimal VMs: 22
+Performance-Optimized Load Balancer Initialized:
+  Total VMs: 38
+  Idle Threshold: 300.0s
+  Initial Optimal VMs: 32
+Performance-Optimized Load Balancer Initialized:
+  Total VMs: 39
+  Idle Threshold: 300.0s
+  Initial Optimal VMs: 33
+Performance-Optimized Load Balancer Initialized:
+  Total VMs: 40
+  Idle Threshold: 300.0s
+  Initial Optimal VMs: 34
+Performance-Optimized Load Balancer Initialized:
+  Total VMs: 27
+  Idle Threshold: 300.0s
+  Initial Optimal VMs: 23
+Performance-Optimized Load Balancer Initialized:
+  Total VMs: 21
+  Idle Threshold: 300.0s
+  Initial Optimal VMs: 18
+Performance-Optimized Load Balancer Initialized:
+  Total VMs: 28
+  Idle Threshold: 300.0s
+  Initial Optimal VMs: 24
+Performance-Optimized Load Balancer Initialized:
+  Total VMs: 41
+  Idle Threshold: 300.0s
+  Initial Optimal VMs: 35
+Performance-Optimized Load Balancer Initialized:
+  Total VMs: 42
+  Idle Threshold: 300.0s
+  Initial Optimal VMs: 36
+Performance-Optimized Load Balancer Initialized:
+  Total VMs: 43
+  Idle Threshold: 300.0s
+  Initial Optimal VMs: 37
+Performance-Optimized Load Balancer Initialized:
+  Total VMs: 16
+  Idle Threshold: 300.0s
+  Initial Optimal VMs: 14
+Performance-Optimized Load Balancer Initialized:
+  Total VMs: 29
+  Idle Threshold: 300.0s
+  Initial Optimal VMs: 25
+Performance-Optimized Load Balancer Initialized:
+  Total VMs: 44
+  Idle Threshold: 300.0s
+  Initial Optimal VMs: 37
+Performance-Optimized Load Balancer Initialized:
+  Total VMs: 30
+  Idle Threshold: 300.0s
+  Initial Optimal VMs: 26
+Performance-Optimized Load Balancer Initialized:
+  Total VMs: 31
+  Idle Threshold: 300.0s
+  Initial Optimal VMs: 26
+Performance-Optimized Load Balancer Initialized:
+  Total VMs: 45
+  Idle Threshold: 300.0s
+  Initial Optimal VMs: 38
+Performance-Optimized Load Balancer Initialized:
+  Total VMs: 46
+  Idle Threshold: 300.0s
+  Initial Optimal VMs: 39
+Performance-Optimized Load Balancer Initialized:
+  Total VMs: 47
+  Idle Threshold: 300.0s
+  Initial Optimal VMs: 40
+Performance-Optimized Load Balancer Initialized:
+  Total VMs: 48
+  Idle Threshold: 300.0s
+  Initial Optimal VMs: 41
+Performance-Optimized Load Balancer Initialized:
+  Total VMs: 49
+  Idle Threshold: 300.0s
+  Initial Optimal VMs: 42
+Performance-Optimized Load Balancer Initialized:
+  Total VMs: 50
+  Idle Threshold: 300.0s
+  Initial Optimal VMs: 43
+simulation time =8.64E7ms
+Gathering simulation data.
+Got response for 3049782 but it seems to be completed.
+Got response for 2972707 but it seems to be completed.
+Got response for 2968886 but it seems to be completed.
+UB3 finalizing. Messages sent:949893, Received:949893
+UB3 requests sent=94989300 , received=94989300
+Got response for 2924816 but it seems to be completed.
+UB5 finalizing. Messages sent:472712, Received:472712
+UB1 finalizing. Messages sent:1095295, Received:1095295
+UB1 requests sent=109488050 , received=109488050
+UB5 requests sent=47230350 , received=47230350
+UB6 finalizing. Messages sent:268893, Received:268893
+UB4 finalizing. Messages sent:624906, Received:624906
+UB4 requests sent=62490600 , received=62490600
+UB2 finalizing. Messages sent:1418886, Received:1418886
+UB2 requests sent=141848100 , received=141848100
+UB6 requests sent=26805685 , received=26805685
+Got response for 3318793 but it seems to be completed.
+Got response for 2795255 but it seems to be completed.
+DC3-Broker finalizing, submitted cloudlets=857090 processing cloudlets=0 ,allRequestsProcessed=85709000
+DC5-Broker finalizing, submitted cloudlets=528225 processing cloudlets=0 ,allRequestsProcessed=52781650
+DC6-Broker finalizing, submitted cloudlets=481881 processing cloudlets=0 ,allRequestsProcessed=48103985
+DC4-Broker finalizing, submitted cloudlets=636886 processing cloudlets=0 ,allRequestsProcessed=63688600
+DC2-Broker finalizing, submitted cloudlets=1165885 processing cloudlets=0 ,allRequestsProcessed=116548000
+DC1-Broker finalizing, submitted cloudlets=1160618 processing cloudlets=0 ,allRequestsProcessed=116020850
+Simulation completed.
+************ Vm allocations in DC1
+0->32620
+1->56296
+2->108332
+3->32420
+4->55620
+5->50114
+6->32272
+7->54884
+8->49588
+9->31944
+10->54110
+11->99864
+12->20073
+13->31398
+14->48372
+15->31684
+16->53456
+17->96690
+18->19822
+19->30928
+20->47590
+21->31314
+22->52654
+23->94000
+24->19762
+25->30532
+26->46556
+27->30646
+28->51638
+29->91382
+30->19562
+31->30112
+32->45864
+33->30542
+34->50850
+35->89786
+36->19328
+37->29828
+38->45090
+39->30072
+40->49880
+41->87998
+42->19238
+43->29458
+44->44264
+45->29606
+46->49180
+47->86142
+48->18996
+49->28880
+------ Tiered Allocation Summary for DC1 ------
+  Strong VMs allocated   : 1131632
+  Moderate VMs allocated : 739704
+  Weak VMs allocated     : 449901
+  --------------------------------------
+  Total allocations      : 2321237
+**********************************************************
+************ Vm allocations in DC2
+0->73458
+1->133994
+2->256954
+3->72574
+4->130996
+5->105922
+6->71848
+7->129616
+8->104449
+9->71148
+10->127592
+11->241280
+12->34020
+13->57450
+14->102120
+15->69036
+16->124764
+17->235006
+18->33334
+19->56398
+20->99812
+------ Tiered Allocation Summary for DC2 ------
+  Strong VMs allocated   : 1145543
+  Moderate VMs allocated : 760810
+  Weak VMs allocated     : 425418
+  --------------------------------------
+  Total allocations      : 2331771
+**********************************************************
+************ Vm allocations in DC3
+0->48196
+1->83210
+2->153920
+3->47496
+4->81114
+5->70870
+6->46934
+7->79646
+8->69614
+9->46268
+10->77728
+11->141212
+12->26802
+13->40064
+14->67060
+15->45340
+16->75432
+17->135476
+18->26154
+19->38904
+20->64501
+21->44356
+22->72806
+23->131078
+------ Tiered Allocation Summary for DC3 ------
+  Strong VMs allocated   : 833731
+  Moderate VMs allocated : 548904
+  Weak VMs allocated     : 331546
+  --------------------------------------
+  Total allocations      : 1714181
+**********************************************************
+************ Vm allocations in DC4
+0->31784
+1->55504
+2->96458
+3->31044
+4->53136
+5->41900
+6->30498
+7->51086
+8->40404
+9->29798
+10->49852
+11->83986
+12->16716
+13->24932
+14->37864
+15->28894
+16->46748
+17->77928
+18->16224
+19->23766
+20->35858
+21->27958
+22->43498
+23->72992
+24->16052
+25->22668
+26->33901
+27->26792
+28->41196
+29->68508
+30->15828
+------ Tiered Allocation Summary for DC4 ------
+  Strong VMs allocated   : 589799
+  Moderate VMs allocated : 412386
+  Weak VMs allocated     : 271588
+  --------------------------------------
+  Total allocations      : 1273773
+**********************************************************
+************ Vm allocations in DC6
+0->38482
+1->80990
+2->151188
+3->36316
+4->75144
+5->61787
+6->34354
+7->70126
+8->58274
+9->32910
+10->66098
+11->121732
+12->20316
+13->32710
+14->52826
+15->30510
+------ Tiered Allocation Summary for DC6 ------
+  Strong VMs allocated   : 445807
+  Moderate VMs allocated : 325068
+  Weak VMs allocated     : 192888
+  --------------------------------------
+  Total allocations      : 963763
+**********************************************************
+************ Vm allocations in DC5
+0->55978
+1->94380
+2->161122
+3->53478
+4->86936
+5->77779
+6->50820
+7->80722
+8->72400
+9->48068
+10->75258
+11->130256
+12->28654
+13->40600
+------ Tiered Allocation Summary for DC5 ------
+  Strong VMs allocated   : 441557
+  Moderate VMs allocated : 377896
+  Weak VMs allocated     : 236998
+  --------------------------------------
+  Total allocations      : 1056451
+**********************************************************
+*****Datacenter: DC1*****
+User id		Debt
+6		117944
+**********************************
+*****Datacenter: DC2*****
+User id		Debt
+8		50254.4
+**********************************
+*****Datacenter: DC3*****
+User id		Debt
+10		57433.6
+**********************************
+*****Datacenter: DC4*****
+User id		Debt
+12		72817.6
+**********************************
+*****Datacenter: DC6*****
+User id		Debt
+14		36921.6
+**********************************
+*****Datacenter: DC5*****
+User id		Debt
+16		31793.6
+**********************************
+Simulation finished at 8.640202E7

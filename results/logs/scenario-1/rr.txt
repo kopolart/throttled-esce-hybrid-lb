@@ -1,0 +1,88 @@
+simulation time =8.64E7ms
+Starting Simulation...
+Initialising...
+  Creating Host #0 with 16 PEs @ 40000 MIPS each.
+  Creating Host #1 with 8 PEs @ 20000 MIPS each.
+Creating new broker DC1-Broker
+VM (ID: 0) Memory: 512 MB
+VM (ID: 0) Cpu: 1
+VM (ID: 0) Bw: 1000
+VM (ID: 0) Storage: 10000
+VM (ID: 0) Mips: 1000
+VM (ID: 1) Memory: 1024 MB
+VM (ID: 1) Cpu: 2
+VM (ID: 1) Bw: 1000
+VM (ID: 1) Storage: 20000
+VM (ID: 1) Mips: 2000
+VM (ID: 2) Memory: 2048 MB
+VM (ID: 2) Cpu: 4
+VM (ID: 2) Bw: 1000
+VM (ID: 2) Storage: 40000
+VM (ID: 2) Mips: 4000
+VM (ID: 3) Memory: 512 MB
+VM (ID: 3) Cpu: 1
+VM (ID: 3) Bw: 1000
+VM (ID: 3) Storage: 10000
+VM (ID: 3) Mips: 1000
+VM (ID: 4) Memory: 1024 MB
+VM (ID: 4) Cpu: 2
+VM (ID: 4) Bw: 1000
+VM (ID: 4) Storage: 20000
+VM (ID: 4) Mips: 2000
+VM (ID: 5) Memory: 2048 MB
+VM (ID: 5) Cpu: 4
+VM (ID: 5) Bw: 1000
+VM (ID: 5) Storage: 40000
+VM (ID: 5) Mips: 4000
+VM (ID: 6) Memory: 512 MB
+VM (ID: 6) Cpu: 1
+VM (ID: 6) Bw: 1000
+VM (ID: 6) Storage: 10000
+VM (ID: 6) Mips: 1000
+0.0 Creating new user base UB1
+Starting GridSim version 4.2
+Entities started.
+Starting user base 7 UB1
+Starting internet 9
+Starting broker 6 name=DC1-Broker
+5.0: DC1-Broker: Cloud Resource List received with 1 resource(s)
+5.0: DC1-Broker: Trying to Create VM #0
+5.0: DC1-Broker: Trying to Create VM #1
+5.0: DC1-Broker: Trying to Create VM #2
+5.0: DC1-Broker: Trying to Create VM #3
+5.0: DC1-Broker: Trying to Create VM #4
+5.0: DC1-Broker: Trying to Create VM #5
+5.0: DC1-Broker: Trying to Create VM #6
+VM 0 created successfully in DC1-Broker
+VM 1 created successfully in DC1-Broker
+VM 2 created successfully in DC1-Broker
+VM 3 created successfully in DC1-Broker
+VM 4 created successfully in DC1-Broker
+VM 5 created successfully in DC1-Broker
+VM 6 created successfully in DC1-Broker
+Gathering simulation data.
+UB1 finalizing. Messages sent:301569, Received:301569
+UB1 requests sent=30104520 , received=30104520
+Got response for 1001461 but it seems to be completed.
+DC1-Broker finalizing, submitted cloudlets=301569 processing cloudlets=0 ,allRequestsProcessed=30104520
+Simulation completed.
+************ Vm allocations in DC1
+0->86164
+1->86164
+2->86164
+3->86164
+4->86164
+5->86163
+6->86163
+------ Tiered Allocation Summary for DC1 ------
+  Strong VMs allocated   : 172327
+  Moderate VMs allocated : 172328
+  Weak VMs allocated     : 258491
+  --------------------------------------
+  Total allocations      : 603146
+**********************************************************
+*****Datacenter: DC1*****
+User id		Debt
+6		15384
+**********************************
+Simulation finished at 8.64235E7
