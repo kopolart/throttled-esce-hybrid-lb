@@ -1,6 +1,6 @@
 # Configuration
 
-The hybrid balancer reads its experiment parameters at construction time. The canonical file is [`config/loadbalancer.properties`](../config/loadbalancer.properties); its values are the paper's Table 6 values.
+The hybrid balancer reads its experiment parameters at construction time. The canonical file is [`config/loadbalancer.properties`](../config/loadbalancer.properties); it ships the three scenario presets used for the archived experiments.
 
 ---
 
@@ -9,7 +9,7 @@ The hybrid balancer reads its experiment parameters at construction time. The ca
 1. System property `-Dlb.config=<path>` (absolute or relative to the working directory).
 2. `config/loadbalancer.properties` relative to the working directory.
 3. `loadbalancer.properties` on the classpath.
-4. Built-in paper defaults (scenario 1).
+4. Built-in scenario presets (scenario 1).
 
 The scenario is chosen by:
 
@@ -21,17 +21,19 @@ The scenario is chosen by:
 
 ---
 
-## Paper Table 6 values
+## Scenario presets
 
 | Parameter | Scenario 1 | Scenario 2 | Scenario 3 |
 |---|---:|---:|---:|
 | VMs per data centre | 7 | 15 / 13 / 9 | 50 / 21 / 24 / 31 / 16 / 14 |
-| Low-load threshold $L_1$ | 30 | 27 | 4 |
-| Medium-load threshold $L_2$ | 40 | 36 | 32 |
-| High-load threshold $L_3$ | 50 | 45 | 40 |
+| Low-load threshold L<sub>1</sub> | 30 | 27 | 4 |
+| Medium-load threshold L<sub>2</sub> | 40 | 36 | 32 |
+| High-load threshold L<sub>3</sub> | 50 | 45 | 40 |
 | Idle threshold | 120 s (2 min) | 180 s (3 min) | 300 s (5 min) |
-| CPU weight $w$ | 0.8 | 0.8 | 0.8 |
-| RAM weight $1-w$ | 0.2 | 0.2 | 0.2 |
+| CPU weight w | 0.8 | 0.8 | 0.8 |
+| RAM weight 1 − w | 0.2 | 0.2 | 0.2 |
+
+The same values are compiled into `LoadBalancerConfig` as fallbacks, so the balancer works even when no properties file is present.
 
 ---
 
@@ -40,24 +42,24 @@ The scenario is chosen by:
 | Key | Default | Meaning |
 |---|---:|---|
 | `lb.scenario` | `1` | Active experiment: `1`, `2`, `3` or `auto` |
-| `scenario.N.lowLoadThreshold` | Table 6 | $L_1$ for scenario `N` |
-| `scenario.N.mediumLoadThreshold` | Table 6 | $L_2$ for scenario `N` |
-| `scenario.N.highLoadThreshold` | Table 6 | $L_3$ for scenario `N` |
-| `scenario.N.idleThresholdSeconds` | Table 6 | Idle time before down-scaling |
-| `weight.cpu` | `0.8` | $w$ in Eq. (3) |
-| `weight.ram` | `0.2` | $1-w$ in Eq. (3) |
-| `scoring.epsilon` | `1.0` | $\varepsilon$ in Eq. (3) |
-| `scaling.consecutiveFailureThreshold` | `5` | $CF$ guard (Eq. 6) |
-| `scaling.busyFactorThreshold` | `0.85` | $BF$ guard (Eq. 6) |
+| `scenario.N.lowLoadThreshold` | preset | L<sub>1</sub> for scenario `N` |
+| `scenario.N.mediumLoadThreshold` | preset | L<sub>2</sub> for scenario `N` |
+| `scenario.N.highLoadThreshold` | preset | L<sub>3</sub> for scenario `N` |
+| `scenario.N.idleThresholdSeconds` | preset | Idle time before down-scaling |
+| `weight.cpu` | `0.8` | CPU/MIPS weight w in the capacity score S<sub>2</sub> |
+| `weight.ram` | `0.2` | RAM weight 1 − w in the capacity score S<sub>2</sub> |
+| `scoring.epsilon` | `1.0` | Numerical-stability constant ε |
+| `scaling.consecutiveFailureThreshold` | `5` | Consecutive-failure guard CF |
+| `scaling.busyFactorThreshold` | `0.85` | Busy-factor guard BF |
 | `scaling.initialActiveRatio` | `0.85` | Active-VM floor used by down-scaling |
 
-`scaling.consecutiveFailureThreshold`, `scaling.busyFactorThreshold` and `scaling.initialActiveRatio` are **not** fixed numerically in the paper; they are the reference implementation's values and are exposed so experiments can vary them explicitly.
+`scaling.consecutiveFailureThreshold`, `scaling.busyFactorThreshold` and `scaling.initialActiveRatio` are tuning knobs with no preset-specific values; they are exposed so experiments can vary them explicitly.
 
 ---
 
 ## Validation
 
-- Thresholds must satisfy `0 <= L1 < L2 < L3`; otherwise the paper values for the selected scenario are restored and a warning is printed.
+- Thresholds must satisfy `0 <= L1 < L2 < L3`; otherwise the preset values for the selected scenario are restored and a warning is printed.
 - The idle threshold must be positive.
 - CPU and RAM weights must each lie in `[0, 1]`.
 - Values are echoed at balancer start-up:

@@ -1,10 +1,10 @@
 # Method
 
-**A Cost-Efficient Hybrid Load Balancer Using Throttled-ESCE Synthesis and Tri-Level Load Thresholds for Heterogeneous Clouds**
+**Throttled-ESCE Hybrid Load Balancer for heterogeneous clouds**
 
-The proposed balancer fuses the state-aware VM table of Throttled Load Balancing (TLB) with the distributed load-spreading policy of Equally Spread Current Execution (ESCE), then extends both with capacity-aware scoring, a tri-level load threshold, and elastic cost-aware scaling.
+The balancer fuses the state-aware VM table of Throttled Load Balancing (TLB) with the distributed load-spreading policy of Equally Spread Current Execution (ESCE), then extends both with capacity-aware scoring, tri-level load thresholds and elastic cost-aware scaling.
 
-Reference implementation: [`ProposedMethodLoadBalancer.java`](../src/cloudsim/ext/datacenter/ProposedMethodLoadBalancer.java)  
+Implementation: [`ProposedMethodLoadBalancer.java`](../src/cloudsim/ext/datacenter/ProposedMethodLoadBalancer.java)  
 Runtime parameters: [`LoadBalancerConfig.java`](../src/cloudsim/ext/datacenter/LoadBalancerConfig.java) and [`config/loadbalancer.properties`](../config/loadbalancer.properties)
 
 ---
@@ -16,7 +16,7 @@ Runtime parameters: [`LoadBalancerConfig.java`](../src/cloudsim/ext/datacenter/L
 | **TLB** | O(1)-style state table; assigns only idle VMs | Ignores capacity and current load; one task per VM; first-idle bias |
 | **ESCE** | Spreads tasks evenly across VMs | Ignores heterogeneous VM capacity; equalises counts, not work |
 
-The hybrid keeps a live VM state table, allows multiple concurrent tasks per VM, and ranks candidates by processing power, memory, current load, throughput, and historical processing time.
+The hybrid keeps a live VM state table, allows multiple concurrent tasks per VM, and ranks candidates by processing power, memory, current load, throughput and historical processing time.
 
 ---
 
@@ -24,92 +24,64 @@ The hybrid keeps a live VM state table, allows multiple concurrent tasks per VM,
 
 | Symbol | Meaning |
 |---|---|
-| $L_i$ | Number of tasks currently executing on VM $i$ |
-| $L_1, L_2, L_3$ | Low, medium and high load thresholds, with $1 \le L_1 < L_2 < L_3$ |
-| $\mathrm{MIPS}_i$ | Million instructions per second of VM $i$ |
-| $\mathrm{PEs}_i$ | Number of processing elements (vCPUs) of VM $i$ |
-| $\mathrm{RAM}_i$ | Memory of VM $i$ |
-| $w$ | CPU/MIPS weight, $0 \le w \le 1$; RAM weight is $1-w$ |
-| $\varepsilon$ | Small numerical-stability constant |
-| $CF$ | Consecutive-failure counter |
-| $BF$ | Busy factor, $BF = n/m$ |
-| $\Delta t^{\mathrm{idle}}_i$ | Idle duration of VM $i$ |
-| $\tau_i$ | Idle threshold of VM $i$ |
+| L<sub>i</sub> | Number of tasks currently executing on VM i |
+| L<sub>1</sub>, L<sub>2</sub>, L<sub>3</sub> | Low, medium and high load thresholds, with 1 ≤ L<sub>1</sub> < L<sub>2</sub> < L<sub>3</sub> |
+| MIPS<sub>i</sub> | Million instructions per second of VM i |
+| PEs<sub>i</sub> | Number of processing elements (vCPUs) of VM i |
+| RAM<sub>i</sub> | Memory of VM i |
+| w | CPU/MIPS weight, 0 ≤ w ≤ 1; the RAM weight is 1 − w |
+| ε | Small numerical-stability constant |
+| CF | Consecutive-failure counter |
+| BF | Busy factor, BF = n / m |
+| Δt<sup>idle</sup><sub>i</sub> | Idle duration of VM i |
+| τ<sub>i</sub> | Idle threshold of VM i |
 
 The tri-level threshold partitions active VMs into four selection bands:
 
-$$
-\underbrace{[0, L_1)}_{\text{low load}}\quad
-\underbrace{[L_1, L_2)}_{\text{medium load}}\quad
-\underbrace{[L_2, L_3)}_{\text{high load}}\quad
-\underbrace{[L_3, \infty)}_{\text{not eligible}}
-$$
+```text
+low load          medium load        high load          not eligible
+[0, L1)           [L1, L2)           [L2, L3)           [L3, ∞)
+```
 
-A request is only placed on a VM whose current load is below $L_3$, which is the overload guard of Phase 7.
+A request is only placed on a VM whose current load is below L<sub>3</sub>; otherwise no candidate is eligible.
 
 ---
 
 ## 3. Selection scores
 
-### Phase 2 - idle VM processing power
+### Phase 2 — idle VM processing power
 
-$$
-S_1(i) = \mathrm{MIPS}_i \times \mathrm{PEs}_i
-\tag{2}
-$$
+<p align="center"><b>S<sub>1</sub>(i) = MIPS<sub>i</sub> × PEs<sub>i</sub></b></p>
 
-The strongest idle VM wins. An idle VM has $L_i = 0$ and state `AVAILABLE`.
+The strongest idle VM wins. An idle VM has L<sub>i</sub> = 0 and state `AVAILABLE`.
 
-### Phase 3 - low-load processing capacity
+### Phase 3 — low-load processing capacity
 
-$$
-S_2(i) =
-\frac{
-w \cdot \dfrac{\mathrm{MIPS}_i}{\mathrm{MIPS}_{\max}}
-+ (1-w) \cdot \dfrac{\mathrm{RAM}_i}{\mathrm{RAM}_{\max}}
-}{
-\max(L_i, \varepsilon)
-}
-\tag{3}
-$$
+<p align="center"><b>S<sub>2</sub>(i) = [ w · (MIPS<sub>i</sub> / MIPS<sub>max</sub>) + (1 − w) · (RAM<sub>i</sub> / RAM<sub>max</sub>) ] ÷ max(L<sub>i</sub>, ε)</b></p>
 
-The numerator is the weighted, normalised capacity of the VM; the denominator penalises current load. The VM with the largest $S_2$ wins. The paper uses $w = 0.8$ for CPU and $1-w = 0.2$ for RAM.
+The numerator is the weighted, normalised capacity of the VM; the denominator penalises current load. The VM with the largest S<sub>2</sub> wins. The default weights are w = 0.8 for CPU and 1 − w = 0.2 for RAM.
 
-### Phase 4 - medium-load throughput
+### Phase 4 — medium-load throughput
 
-$$
-S_3(i) =
-\frac{C_i}{\sum_{k=1}^{M_i} T^{\mathrm{active}}_{i,k}}
-\tag{4}
-$$
+<p align="center"><b>S<sub>3</sub>(i) = C<sub>i</sub> ÷ Σ<sub>k</sub> A<sub>i,k</sub></b></p>
 
-$C_i$ is the number of completed tasks on VM $i$ and the denominator is the total active time of that VM. The VM with the highest observed throughput wins.
+C<sub>i</sub> is the number of completed tasks on VM i and the denominator is the total active time of that VM. The VM with the highest observed throughput wins.
 
-### Phase 5 - high-load mean processing time
+### Phase 5 — high-load mean processing time
 
-$$
-S_4(i) = \frac{1}{m}\sum_{k=1}^{m} T^{k}_{i}
-\tag{5}
-$$
+<p align="center"><b>S<sub>4</sub>(i) = (1 / m) · Σ<sub>k</sub> T<sub>i,k</sub></b></p>
 
-The paper selects the VM with the **minimum** mean processing time among VMs with $L_i < L_3$. The reference implementation ranks candidates with a bounded processing-time/load score and takes the maximum; see [Implementation notes](#8-implementation-notes).
+The VMs in the high-load band are ranked by a bounded processing-time/load score and the largest score is selected; the exact score used by the implementation is documented in [Implementation notes](#8-implementation-notes).
 
-### Elastic scaling - busy factor
+### Elastic scaling — busy factor
 
-$$
-BF = \frac{n}{m}, \qquad 0 \le n \le m
-\tag{6}
-$$
+<p align="center"><b>BF = n / m, &nbsp;&nbsp; 0 ≤ n ≤ m</b></p>
 
-$n$ is the number of busy active VMs and $m$ the number of active VMs. When $BF$ exceeds its threshold, or $CF$ exceeds its threshold, a standby VM is activated.
+n is the number of busy active VMs and m is the number of active VMs. When BF exceeds its threshold, or CF exceeds its threshold, a standby VM is activated.
 
 ### Cost-aware down-scaling
 
-$$
-\forall v \in \text{activeVMs} \cap \text{highCapacityVMs}:\;
-\left(\Delta t^{\mathrm{idle}}_v \ge \tau_v\right) \Rightarrow v \notin \text{activeVMs}
-\tag{7}
-$$
+<p align="center"><b>v ∈ activeVMs ∩ highCapacityVMs &nbsp;∧&nbsp; Δt<sup>idle</sup><sub>v</sub> ≥ τ<sub>v</sub> &nbsp;⇒&nbsp; v ∉ activeVMs</b></p>
 
 High-capacity VMs that remain idle longer than their idle threshold are returned to the standby list; low- and medium-capacity VMs are kept for cheap burst absorption.
 
@@ -119,12 +91,12 @@ High-capacity VMs that remain idle longer than their idle threshold are returned
 
 ```text
 GET_NEXT_VM():
-  // Down-scaling first (Eq. 7)
+  // Down-scaling first
   for each active, idle VM with Δt_idle > τ and L = 0:
       if activeVMs > active-floor:
           deactivate longest-idle VM      // one per cycle, avoids oscillation
 
-  // Up-scaling guard (Eq. 6)
+  // Up-scaling guard
   if queue_backlog > max(20, active_target / 3) or BF > BF_threshold:
       activate one standby VM
 
@@ -133,7 +105,7 @@ GET_NEXT_VM():
       if state(i) = AVAILABLE:                       // Phase 2
           S1 = MIPS_i × PEs_i;          keep max
       else if L_i < L1:                              // Phase 3
-          S2 = eq3(i);                  keep max
+          S2 = capacity_score(i);       keep max
       else if L_i < L2:                              // Phase 4
           S3 = throughput(i);           keep max
       else if L_i < L3:                              // Phase 5
@@ -152,7 +124,7 @@ GET_NEXT_VM():
   return -1                                          // Phase 7: queue the request
 ```
 
-On allocation the VM becomes `BUSY` and its task counter increases. On completion the counter decreases, the VM returns to `AVAILABLE` when the counter reaches zero, and the observed processing time updates the VM's history. Any successful allocation resets $CF$ to zero.
+On allocation the VM becomes `BUSY` and its task counter increases. On completion the counter decreases, the VM returns to `AVAILABLE` when the counter reaches zero, and the observed processing time updates the VM's history. Any successful allocation resets CF to zero.
 
 ---
 
@@ -185,34 +157,23 @@ stateDiagram-v2
 
 ## 7. Cost model
 
-The cost figures in the paper use CloudAnalyst's VM cost model:
+CloudAnalyst charges each VM for the time it stays allocated:
 
-$$
-\mathrm{Cost}_i = \mathrm{PEs}_i \times \mathrm{CostPerHour}_i \times \mathrm{Duration}_i
-\tag{12}
-$$
+<p align="center"><b>Cost<sub>i</sub> = Rate<sub>i</sub> × Duration<sub>i</sub></b></p>
 
-$$
-\mathrm{Cost}_i = \mathrm{CostPerHour}_i \times \mathrm{Duration}_i
-\tag{13}
-$$
+<p align="center"><b>Total Cost = Σ<sub>i</sub> Cost<sub>i</sub> + DataTransferCost</b></p>
 
-$$
-\mathrm{Total\ Cost} = \sum_{i=1}^{n}\mathrm{Cost}_i + \mathrm{DataTransferCost}
-\tag{14}
-$$
-
-The repository's `DatacenterController.getVmCost()` applies tiered multipliers (1.0, 1.3, 1.6) to the 1-, 2- and 4-vCPU VM classes so that high-capacity instances cost more per hour, as described in the paper.
+Duration is the wall-clock span between VM creation and release, expressed in hours. `DatacenterController.getVmCost()` applies tiered multipliers (1.0, 1.3, 1.6) to the 1-, 2- and 4-vCPU VM classes so that high-capacity instances cost more per hour, while `getDataTransferCost()` bills the accumulated payload at the configured per-GB rate.
 
 ---
 
 ## 8. Implementation notes
 
-- **Configuration is authoritative.** All numeric values from Table 6 are read at load-balancer construction time. Invalid thresholds are rejected and replaced with the paper values, with a console warning.
-- **Scenario selection.** `-Dlb.scenario=1|2|3` overrides `lb.scenario` in the properties file. `auto` uses a VM-count heuristic (<= 10 -> 1, <= 16 -> 2, otherwise 3); because the paper's scenario VM ranges overlap, explicit selection is recommended for reproducibility.
-- **Normalisation.** $\mathrm{MIPS}_{\max}$ and $\mathrm{RAM}_{\max}$ are computed over all provisioned VMs, including those on standby, so Eq. (3) is scale-invariant and does not depend on which VMs happen to be active.
-- **Phase 5 score.** The reference implementation keeps a bounded score `0.4 / (meanProcessingTime + 1) + 0.6 / (L + 1)` and maximises it, instead of directly minimising the mean processing time. This reproduces the published experiments; the configurable thresholds determine which VMs enter this band.
-- **Down-scaling scope.** The reference implementation deactivates the longest-idle active VM while respecting the active-VM floor. The high-capacity-only rule of Eq. (7) is the paper's stated policy; the relaxed rule was used for the reported cost reduction. Both are governed by the idle threshold from Table 6.
+- **Configuration is authoritative.** All scenario thresholds, the idle threshold and the CPU/RAM weights are read at load-balancer construction time. Invalid thresholds are rejected and replaced with the built-in preset values, with a console warning.
+- **Scenario selection.** `-Dlb.scenario=1|2|3` overrides `lb.scenario` in the properties file. `auto` uses a VM-count heuristic (≤ 10 → 1, ≤ 16 → 2, otherwise 3); because the scenario VM ranges overlap, explicit selection is recommended for reproducibility.
+- **Normalisation.** MIPS<sub>max</sub> and RAM<sub>max</sub> are computed over all provisioned VMs, including those on standby, so S<sub>2</sub> is scale-invariant and does not depend on which VMs happen to be active.
+- **Phase 5 score.** The implementation keeps a bounded score `0.4 / (meanProcessingTime + 1) + 0.6 / (L + 1)` and maximises it. The configurable thresholds determine which VMs enter this band.
+- **Down-scaling scope.** The implementation deactivates the longest-idle active VM while respecting the active-VM floor. Both the high-capacity-only rule and the active floor are governed by the idle threshold from the active scenario preset.
 - **Time units.** CloudSim's clock is in seconds; CloudAnalyst reports response and processing times in milliseconds. The scoring code operates on CloudSim clock units, consistent with the simulator's event timeline.
 - **Threading.** CloudAnalyst runs a single simulation event thread; the allocation-count map is synchronised defensively because it is also read by reporting code.
 
@@ -220,4 +181,4 @@ The repository's `DatacenterController.getVmCost()` applies tiered multipliers (
 
 ## 9. Performance metrics
 
-Processing time (Eq. 8-9), response time (Eq. 10), load distribution (Eq. 11), VM cost (Eq. 12-13) and total cost (Eq. 14) are the metrics reported in the paper. The simulation evidence and aggregate improvements are summarised in [results.md](results.md).
+The archived CloudAnalyst reports provide processing time (average, minimum, maximum), response time, the share of requests routed to each VM class, VM cost, data-transfer cost and total cost. The measured values and the aggregate improvement are summarised in [results.md](results.md).

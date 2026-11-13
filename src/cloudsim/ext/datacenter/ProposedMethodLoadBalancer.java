@@ -18,7 +18,7 @@ import gridsim.GridSim;
 /**
  * Hybrid Throttled-ESCE load balancer with tri-level load thresholds and
  * cost-aware elastic scaling. Numeric parameters are read from
- * {@link LoadBalancerConfig} and default to Table 6 of the paper.
+ * {@link LoadBalancerConfig} and default to the scenario presets.
  */
 public class ProposedMethodLoadBalancer extends VmLoadBalancer implements CloudSimEventListener {
 

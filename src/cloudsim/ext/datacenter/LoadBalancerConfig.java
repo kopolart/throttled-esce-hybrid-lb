@@ -9,7 +9,7 @@ import java.util.Properties;
  * Runtime configuration for {@link ProposedMethodLoadBalancer}.
  *
  * <p>The per-scenario load thresholds, idle threshold and CPU/RAM weights
- * mirror Table 6 of the paper. Values can be overridden with
+ * mirror the three bundled scenario presets. Values can be overridden with
  * {@code -Dlb.config=<path>} and the scenario can be selected with
  * {@code -Dlb.scenario=1|2|3|auto}.</p>
  */
@@ -19,8 +19,8 @@ public final class LoadBalancerConfig {
     public static final String SCENARIO_PROPERTY = "lb.scenario";
     public static final String DEFAULT_CONFIG_PATH = "config/loadbalancer.properties";
 
-    /** Paper Table 6: {low, medium, high, idle seconds}. */
-    private static final double[][] PAPER_SCENARIOS = {
+    /** Built-in presets: {low, medium, high, idle seconds}. */
+    private static final double[][] SCENARIO_PRESETS = {
             { 30, 40, 50, 120 },
             { 27, 36, 45, 180 },
             { 4, 32, 40, 300 }
@@ -65,7 +65,7 @@ public final class LoadBalancerConfig {
 
     public static LoadBalancerConfig load(int vmCount) {
         Properties props = new Properties();
-        String source = "built-in paper defaults";
+        String source = "built-in scenario presets";
         String configuredPath = System.getProperty(CONFIG_PATH_PROPERTY, DEFAULT_CONFIG_PATH);
         File file = new File(configuredPath);
 
@@ -90,7 +90,7 @@ public final class LoadBalancerConfig {
         }
 
         int scenario = resolveScenario(props, vmCount);
-        double[] defaults = PAPER_SCENARIOS[scenario - 1];
+        double[] defaults = SCENARIO_PRESETS[scenario - 1];
 
         int low = readInt(props, "scenario." + scenario + ".lowLoadThreshold", (int) defaults[0]);
         int medium = readInt(props, "scenario." + scenario + ".mediumLoadThreshold", (int) defaults[1]);
@@ -99,7 +99,7 @@ public final class LoadBalancerConfig {
 
         if (!(0 <= low && low < medium && medium < high)) {
             System.err.println("[HybridLB] Invalid thresholds for scenario " + scenario
-                    + " (" + low + ", " + medium + ", " + high + "); using paper values.");
+                    + " (" + low + ", " + medium + ", " + high + "); using preset values.");
             low = (int) defaults[0];
             medium = (int) defaults[1];
             high = (int) defaults[2];
@@ -137,7 +137,7 @@ public final class LoadBalancerConfig {
         }
         try {
             int scenario = Integer.parseInt(value);
-            if (scenario >= 1 && scenario <= PAPER_SCENARIOS.length) {
+            if (scenario >= 1 && scenario <= SCENARIO_PRESETS.length) {
                 return scenario;
             }
         } catch (NumberFormatException ignored) {

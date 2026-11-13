@@ -26,7 +26,7 @@ jobs:
             -cp "jars/*" -d build/classes @build/sources.txt
           cp -r src/resources/. build/classes/
 
-      - name: Verify paper Table 6 configuration
+      - name: Verify scenario presets
         run: |
           mkdir -p build/test-classes
           javac -encoding UTF-8 -source 1.8 -target 1.8 \

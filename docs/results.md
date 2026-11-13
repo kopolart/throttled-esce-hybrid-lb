@@ -20,7 +20,7 @@ The cost reduction comes from elastic down-scaling: high-capacity VMs are return
 
 ---
 
-## Processing time (Table 8)
+## Processing time
 
 | Scenario | Policy | Average | Min | Max |
 |---|---|---:|---:|---:|
@@ -39,7 +39,7 @@ The cost reduction comes from elastic down-scaling: high-capacity VMs are return
 
 ---
 
-## Response time (Table 9)
+## Response time
 
 | Scenario | Policy | Average | Min | Max |
 |---|---|---:|---:|---:|
@@ -56,11 +56,11 @@ The cost reduction comes from elastic down-scaling: high-capacity VMs are return
 | 3 | TLB | 108.97 | 34.92 | 508.14 |
 | 3 | **Hybrid** | **103.80** | 34.92 | 528.36 |
 
-In the most demanding scenario the hybrid has a marginally higher maximum response time than TLB (528.36 ms vs 508.14 ms). The paper attributes this to counting tasks rather than their computational weight: a few heavy tasks on one VM can create a short-lived outlier.
+In the most demanding scenario the hybrid has a marginally higher maximum response time than TLB (528.36 ms vs 508.14 ms). This is attributable to counting tasks rather than their computational weight: a few heavy tasks on one VM can create a short-lived outlier.
 
 ---
 
-## Load distribution (Table 10)
+## Load distribution
 
 Share of requests routed to each VM class (LC = low, MC = medium, HC = high capacity):
 
@@ -83,7 +83,7 @@ The hybrid consistently routes the largest share to high-capacity VMs while keep
 
 ---
 
-## Cost (Table 11)
+## Cost
 
 | Scenario | Policy | VM cost | Data transfer | Total |
 |---|---|---:|---:|---:|

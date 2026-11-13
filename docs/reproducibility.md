@@ -1,6 +1,6 @@
 # Reproducibility
 
-All experiments were run in **CloudAnalyst** over a simulated 24-hour period. This page records the exact setup from the paper so the three scenarios can be rebuilt in the GUI.
+All experiments were run in **CloudAnalyst** over a simulated 24-hour period. This page records the setup used for the archived runs so the three scenarios can be rebuilt in the GUI.
 
 ---
 
@@ -20,7 +20,7 @@ The proposed policy appears in the **Advanced** tab of the configuration screen 
 
 ---
 
-## 2. User bases (Table 1 of the paper)
+## 2. User bases
 
 | Scenario | UB | Region | Off-peak users | Peak users | Peak window | Data per request (B) | Requests/user/hour |
 |---|---|---:|---:|---:|---|---:|---:|
@@ -37,7 +37,7 @@ The proposed policy appears in the **Advanced** tab of the configuration screen 
 
 ---
 
-## 3. Data centres (Table 2)
+## 3. Data centres
 
 | Scenario | DC | Region | VMs | VMM | OS | Architecture |
 |---|---|---:|---|---|---|---|
@@ -54,7 +54,7 @@ The proposed policy appears in the **Advanced** tab of the configuration screen 
 
 ---
 
-## 4. Physical servers (Table 3)
+## 4. Physical servers
 
 Each data centre hosts two heterogeneous physical servers.
 
@@ -63,11 +63,11 @@ Each data centre hosts two heterogeneous physical servers.
 | Time-Shared | 40,000 MIPS | 16 CPU | 1 Gb/s | 100,000,000 MB | 204,800 MB |
 | Time-Shared | 20,000 MIPS | 8 CPU | 1 Gb/s | 100,000,000 MB | 204,800 MB |
 
-VMs are instantiated across the servers with Round Robin; the total VM count per DC is set in the GUI (Table 2).
+VMs are instantiated across the servers with Round Robin; the total VM count per DC is set in the GUI (Section 3).
 
 ---
 
-## 5. VM classes (Table 4)
+## 5. VM classes
 
 | Class | MIPS | Bandwidth | PEs | Image size | RAM |
 |---|---:|---:|---:|---:|---:|
@@ -77,17 +77,17 @@ VMs are instantiated across the servers with Round Robin; the total VM count per
 
 ---
 
-## 6. Cost configuration (Table 5)
+## 6. Cost configuration
 
 | Physical units | Data transfer | Storage | Memory | Base cost per VM | DC |
 |---:|---:|---:|---:|---:|---|
-| 2 | 0.1 $/GB | 0.1 $/s | 0.05 $/s | 0.1 $/hour | all |
+| 2 | 0.1 USD/GB | 0.1 USD/s | 0.05 USD/s | 0.1 USD/hour | all |
 
 `DatacenterController.getVmCost()` applies multipliers **1.0 / 1.3 / 1.6** for the 1-, 2- and 4-vCPU classes, so high-capacity VMs carry a higher hourly rate.
 
 ---
 
-## 7. Instruction lengths (Table 7)
+## 7. Instruction lengths
 
 | Scenario | Instruction length (bytes) | Output size (bytes) |
 |---|---|---:|
@@ -114,7 +114,7 @@ java -Dlb.scenario=3 -cp "build/classes:jars/*" cloudsim.ext.gui.GuiMain
 
 The values loaded from [`config/loadbalancer.properties`](../config/loadbalancer.properties) are:
 
-| Scenario | $L_1$ | $L_2$ | $L_3$ | Idle threshold |
+| Scenario | L<sub>1</sub> | L<sub>2</sub> | L<sub>3</sub> | Idle threshold |
 |---|---:|---:|---:|---:|
 | 1 | 30 | 40 | 50 | 120 s |
 | 2 | 27 | 36 | 45 | 180 s |

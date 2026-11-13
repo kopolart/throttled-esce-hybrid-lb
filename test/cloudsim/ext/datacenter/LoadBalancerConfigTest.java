@@ -1,7 +1,7 @@
 package cloudsim.ext.datacenter;
 
 /**
- * Headless checks for the paper Table 6 configuration. Run from the
+ * Headless checks for the scenario presets. Run from the
  * repository root so that {@code config/loadbalancer.properties} is found.
  */
 public final class LoadBalancerConfigTest {

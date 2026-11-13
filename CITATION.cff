@@ -1,11 +1,11 @@
 cff-version: 1.2.0
-message: "If you use this software or the reported results, please cite the accompanying article."
+message: "If you use this software, please cite it using the metadata below."
 title: "Throttled-ESCE Hybrid Load Balancer: reference implementation and CloudAnalyst experiments"
 abstract: >-
-  Reference implementation of a cost-efficient hybrid load balancer that
-  combines Throttled and Equally Spread Current Execution policies with
-  tri-level load thresholds, capacity-aware scoring and elastic scaling for
-  heterogeneous cloud environments.
+  A hybrid VM load balancer for CloudAnalyst that combines Throttled and
+  Equally Spread Current Execution policies with tri-level load thresholds,
+  capacity-aware scoring and elastic scaling for heterogeneous cloud
+  environments, together with the full experimental setup and reports.
 type: software
 authors:
   - family-names: "Yousefi Choubini"
@@ -25,12 +25,3 @@ keywords:
   - throttled load balancing
   - ESCE
   - heterogeneous clouds
-preferred-citation:
-  type: article
-  title: "A Cost-Efficient Hybrid Load Balancer Using Throttled-ESCE Synthesis and Tri-level Load Thresholds for Heterogeneous Clouds"
-  authors:
-    - family-names: "Yousefi Choubini"
-      given-names: "Ali"
-      affiliation: "Shahid Ashrafi Esfahani University, Isfahan, Iran"
-  year: 2026
-  journal: "Manuscript submitted for publication"
