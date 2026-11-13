@@ -228,13 +228,9 @@ This is an event-driven simulator implementation, not a production load balancer
 
 ---
 
-## Author
+## Contact
 
-**Ali Yousefi Choubini**  
-PhD student in Software Engineering, Islamic Azad University, Isfahan Branch, Iran  
-Lecturer, Sepahan Institute of Higher Education and Shahid Ashrafi Esfahani University  
-[a.yousofi@ashrafi.ac.ir](mailto:a.yousofi@ashrafi.ac.ir) · [contact.yousefi@gmail.com](mailto:contact.yousefi@gmail.com)  
-GitHub: [@kopolart](https://github.com/kopolart)
+[contact.yousefi@gmail.com](mailto:contact.yousefi@gmail.com)
 
 ---
 
