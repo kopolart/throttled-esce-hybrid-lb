@@ -2,6 +2,10 @@
 
 All values are from the CloudAnalyst reports archived in [`results/`](../results). Times are in milliseconds; costs are in US dollars.
 
+![CloudAnalyst response-time map for scenario 3](images/cloudanalyst-scenario-3.png)
+
+*Response-time map from a 24-hour scenario-3 run: six user bases served by six data centres, with average, maximum and minimum response time per user base.*
+
 ---
 
 ## Aggregate improvements

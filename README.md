@@ -30,6 +30,10 @@ This repository packages the full CloudAnalyst simulator source together with a 
 | Total cost | **-4.36%** |
 | Requests routed to high-capacity VMs | **> 44.39%** |
 
+![CloudAnalyst response-time map for scenario 3](docs/images/cloudanalyst-scenario-3.png)
+
+*Response-time map from a 24-hour scenario-3 run: six user bases served by six data centres, with average, maximum and minimum response time per user base.*
+
 Full tables: [docs/results.md](docs/results.md)
 
 ---
@@ -141,7 +145,8 @@ throttled-esce-hybrid-lb/
 │   ├── method.md                            equations, phases, state machine
 │   ├── configuration.md                     keys, resolution order, validation
 │   ├── reproducibility.md                   full CloudAnalyst setup tables
-│   └── results.md                           all metric tables
+│   ├── results.md                           all metric tables
+│   └── images/                              CloudAnalyst screenshots
 ├── results/
 │   ├── scenario-1/                          CloudAnalyst reports (4 policies)
 │   ├── scenario-2/
