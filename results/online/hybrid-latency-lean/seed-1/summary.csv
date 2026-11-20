@@ -1,0 +1,2 @@
+run_id,expert,seed,policy,scenario,cloudlets,requests,mean_proc_ms,p95_proc_ms,max_proc_ms,proc_sla_rate,responses,response_requests,mean_response_ms,p95_response_ms,max_response_ms,response_sla_rate,vm_cost,data_cost,total_cost,sim_end_ms
+hybrid-latency-lean-seed1,hybrid-latency-lean,1,Proposed Method,5,303758,30324480,2.0674,7.5000,15.1087,0.1273,303758,30324480,59.1695,80.3832,97.9722,0.0541,21.1304,292.0936,313.2241,86388759.5151

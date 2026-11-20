@@ -1,0 +1,3 @@
+policy,static_regret_mean,static_ci95,dynamic_regret_mean,dynamic_ci95,best_fixed_selected,mean_final_top_weight
+Hedge (mixture),1.21,"[1.19, 1.23]",1.24,"[1.23, 1.26]",Latency-lean (5/5),Latency-lean 0.14
+Hedge (greedy pick),0.18,"[0.17, 0.18]",0.21,"[0.21, 0.22]",Latency-lean (5/5),Latency-lean 0.14

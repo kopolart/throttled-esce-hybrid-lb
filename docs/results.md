@@ -102,6 +102,35 @@ Data-transfer cost is workload-driven and therefore identical between policies; 
 
 ---
 
+## Online-learning comparison (scenario 1, seeded headless runs)
+
+Nine load-balancer policies, five paired seeds, identical 24-hour workload. Hedge
+selects among the fixed policies every 15 minutes; the hybrid remains the balanced
+cost-latency winner.
+
+| Policy | Mean response (ms) | p95 response (ms) | SLA violations | VM cost | Cumulative loss |
+|---|---:|---:|---:|---:|---:|
+| Round Robin | 61.92 | 93.07 | 14.68% | 21.13 | 75.52 |
+| Throttled | 63.58 | 96.47 | 21.57% | 21.13 | 76.79 |
+| ESCE | 60.52 | 86.49 | 10.03% | 21.13 | 73.84 |
+| Min-Min | 60.20 | 83.15 | 7.96% | 21.13 | 73.25 |
+| Ant Colony (ACO) | 60.18 | 82.75 | 7.93% | 21.13 | 73.13 |
+| Particle Swarm (PSO) | 60.21 | 83.15 | 7.95% | 21.13 | 73.27 |
+| **Hybrid (S1)** | **59.56** | **81.88** | **7.02%** | **12.24** | 72.79 |
+| Hybrid cost-lean (S4) | 59.88 | 82.97 | 7.68% | **7.08** | 73.08 |
+| Hybrid latency-lean (S5) | **59.22** | **80.57** | **5.59%** | 21.13 | **72.43** |
+| Hedge (greedy pick) | — | — | — | — | **72.61** |
+
+Hedge lands 0.18 loss units (0.25%) above the best fixed expert chosen in hindsight
+and beats the other eight experts in 5/5 paired seeds; empirical regret is 0.88% of the
+theoretical bound.
+
+![Cumulative loss](../analysis/output/figures/fig01_cumulative_loss.png)
+
+Full protocol and paired tests: [online-learning-experiment.md](online-learning-experiment.md).
+
+---
+
 ## Archived CloudAnalyst reports
 
 | Scenario | Proposed | Throttled | ESCE | RR |

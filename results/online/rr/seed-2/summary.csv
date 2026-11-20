@@ -1,0 +1,2 @@
+run_id,expert,seed,policy,scenario,cloudlets,requests,mean_proc_ms,p95_proc_ms,max_proc_ms,proc_sla_rate,responses,response_requests,mean_response_ms,p95_response_ms,max_response_ms,response_sla_rate,vm_cost,data_cost,total_cost,sim_end_ms
+rr-seed2,rr,2,Round Robin,,304481,30396000,7.7719,38.1493,57.6295,0.3430,304481,30396000,62.1262,93.5992,117.2429,0.1512,21.1224,292.7826,313.9050,86352161.5731

@@ -22,6 +22,7 @@ import cloudsim.ext.event.CloudSimEvent;
 import cloudsim.ext.event.CloudSimEventListener;
 import cloudsim.ext.event.CloudSimEvents;
 import cloudsim.ext.event.CloudsimObservable;
+import cloudsim.ext.experiment.ExperimentMetrics;
 import cloudsim.ext.stat.HourlyEventCounter;
 import cloudsim.ext.stat.HourlyStat;
 import cloudsim.ext.util.CommPath;
@@ -188,10 +189,12 @@ public class DatacenterController extends DatacenterBroker implements GeoLocatab
 	 * @param cl
 	 */
 	protected void handleResponseCloudlet(InternetCloudlet cl) {
+		cl.setActualCPUTime(GridSim.clock() - cl.getExecStartTime());
 		cloudletCompletedProcessing(cl);
 		int parentRequest = cl.getParentId();
 		Long[] parentReqStatus = processingCloudletStatuses.remove(parentRequest);
-		cl.setActualCPUTime(GridSim.clock() - cl.getExecStartTime());
+		ExperimentMetrics.getInstance().recordCloudlet(cl.getVmId(), cl.getExecStartTime(), GridSim.clock(),
+				cl.getActualCPUTime(), cl.getRequestCount());
 		if (parentReqStatus == null) {
 			System.out.println("Got response for " + parentRequest + " but it seems to be completed.");
 			return;
@@ -274,6 +277,7 @@ public class DatacenterController extends DatacenterBroker implements GeoLocatab
 		int vmId = cl.getVmId();
 		CloudSimEvent e = new CloudSimEvent(CloudSimEvents.EVENT_VM_FINISHED_CLOUDLET);
 		e.addParameter(Constants.PARAM_VM_ID, vmId);
+		e.addParameter(Constants.PARAM_PROCESSING_TIME, Double.valueOf(cl.getActualCPUTime()));
 		fireCloudSimEvent(e);
 
 		submitWaitingCloudlet();

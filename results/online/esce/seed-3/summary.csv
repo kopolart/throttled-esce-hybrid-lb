@@ -1,0 +1,2 @@
+run_id,expert,seed,policy,scenario,cloudlets,requests,mean_proc_ms,p95_proc_ms,max_proc_ms,proc_sla_rate,responses,response_requests,mean_response_ms,p95_response_ms,max_response_ms,response_sla_rate,vm_cost,data_cost,total_cost,sim_end_ms
+esce-seed3,esce,3,Equally Spread Current Execution Load,,299460,29894640,5.6206,24.8117,48.8090,0.3341,299460,29894640,60.2815,85.9804,107.2250,0.0949,21.1325,287.9534,309.0859,86388159.7975

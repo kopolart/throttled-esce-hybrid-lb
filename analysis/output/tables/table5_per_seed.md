@@ -1,0 +1,9 @@
+**Table 5. Per-seed learner outcomes.**
+
+| seed | learner_loss | greedy_loss | best_fixed | best_fixed_loss | static_regret | dynamic_regret | switches | final_top_expert | final_top_weight |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 1 | 73.61 | 72.57 | Latency-lean | 72.38 | 1.23 | 1.26 | 2 | Latency-lean | 0.144 |
+| 2 | 73.76 | 72.73 | Latency-lean | 72.55 | 1.21 | 1.24 | 3 | Latency-lean | 0.143 |
+| 3 | 73.5 | 72.48 | Latency-lean | 72.3 | 1.2 | 1.23 | 2 | Latency-lean | 0.143 |
+| 4 | 73.73 | 72.7 | Latency-lean | 72.52 | 1.21 | 1.24 | 2 | Latency-lean | 0.143 |
+| 5 | 73.59 | 72.56 | Latency-lean | 72.38 | 1.21 | 1.24 | 3 | Latency-lean | 0.143 |

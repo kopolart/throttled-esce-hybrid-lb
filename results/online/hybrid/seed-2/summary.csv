@@ -1,0 +1,2 @@
+run_id,expert,seed,policy,scenario,cloudlets,requests,mean_proc_ms,p95_proc_ms,max_proc_ms,proc_sla_rate,responses,response_requests,mean_response_ms,p95_response_ms,max_response_ms,response_sla_rate,vm_cost,data_cost,total_cost,sim_end_ms
+hybrid-seed2,hybrid,2,Proposed Method,1,304481,30396000,3.1997,12.4954,24.9912,0.2539,304481,30396000,59.7251,82.2157,97.5221,0.0745,11.7299,292.7826,304.5125,86352161.1170

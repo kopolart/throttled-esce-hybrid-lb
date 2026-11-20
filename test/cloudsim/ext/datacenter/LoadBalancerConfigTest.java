@@ -42,6 +42,27 @@ public final class LoadBalancerConfigTest {
         expect(LoadBalancerConfig.load(16).getScenario() == 2, "auto: 16 VMs -> scenario 2");
         expect(LoadBalancerConfig.load(50).getScenario() == 3, "auto: 50 VMs -> scenario 3");
 
+        System.setProperty(LoadBalancerConfig.CONFIG_PATH_PROPERTY, LoadBalancerConfig.DEFAULT_CONFIG_PATH);
+        System.setProperty(LoadBalancerConfig.SCENARIO_PROPERTY, "4");
+        LoadBalancerConfig costLean = LoadBalancerConfig.load(7);
+        expect(costLean.getLowLoadThreshold() == 40, "scenario 4 L1 = 40");
+        expect(costLean.getMediumLoadThreshold() == 55, "scenario 4 L2 = 55");
+        expect(costLean.getHighLoadThreshold() == 70, "scenario 4 L3 = 70");
+        expect(costLean.getIdleThresholdSeconds() == 600, "scenario 4 idle = 600 s");
+        expect(costLean.getActiveRatio() == 0.60, "scenario 4 active ratio = 0.60");
+        expect(costLean.getBusyFactorThreshold() == 0.95, "scenario 4 busy factor = 0.95");
+        expect(costLean.getConsecutiveFailureThreshold() == 8, "scenario 4 failure threshold = 8");
+
+        System.setProperty(LoadBalancerConfig.SCENARIO_PROPERTY, "5");
+        LoadBalancerConfig latencyLean = LoadBalancerConfig.load(7);
+        expect(latencyLean.getLowLoadThreshold() == 10, "scenario 5 L1 = 10");
+        expect(latencyLean.getMediumLoadThreshold() == 20, "scenario 5 L2 = 20");
+        expect(latencyLean.getHighLoadThreshold() == 30, "scenario 5 L3 = 30");
+        expect(latencyLean.getIdleThresholdSeconds() == 60, "scenario 5 idle = 60 s");
+        expect(latencyLean.getActiveRatio() == 1.00, "scenario 5 active ratio = 1.00");
+        expect(latencyLean.getBusyFactorThreshold() == 0.70, "scenario 5 busy factor = 0.70");
+        expect(latencyLean.getConsecutiveFailureThreshold() == 3, "scenario 5 failure threshold = 3");
+
         System.out.println("LoadBalancerConfigTest: all checks passed.");
     }
 

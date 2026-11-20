@@ -13,10 +13,10 @@ All experiments were run in **CloudAnalyst** over a simulated 24-hour period. Th
 | Service broker policy | Optimize Response Time |
 | User grouping factor | 100 |
 | Request grouping factor (DC) | 100 |
-| Load balancers compared | Proposed Method, Throttled (TLB), Round Robin (RR), ESCE |
+| Load balancers compared | Proposed Method, Throttled (TLB), Round Robin (RR), ESCE, Min Min, Ant Colony, PSO LoadBalancer |
 | Simulation duration | 24 hours |
 
-The proposed policy appears in the **Advanced** tab of the configuration screen as **Proposed Method**.
+The proposed policy appears in the **Advanced** tab of the configuration screen as **Proposed Method**; the additional balancers appear as **Min Min**, **Ant Colony** and **PSO LoadBalancer**.
 
 ---
 
@@ -136,7 +136,18 @@ CPU/RAM weights are 0.8 / 0.2 in all scenarios.
    - Load balancing policy: **Proposed Method**
 5. Start the simulation and wait for the 24-hour run to finish.
 6. Export the generated report as PDF (CloudAnalyst does this automatically on the results screen).
-7. Repeat steps 4-6 with **Round Robin**, **Throttled** and **Equally Spread Current Execution Load**.
+7. Repeat steps 4-6 with **Round Robin**, **Throttled**, **Equally Spread Current Execution Load**, **Min Min**, **Ant Colony** and **PSO LoadBalancer**.
 8. Compare against the reports in [`results/`](../results).
 
 The archived CloudAnalyst reports for every scenario and policy are included under [`results/`](../results); console logs from the runs are under [`results/logs/`](../results/logs).
+
+### Seeded 9-expert Hedge grid
+
+The online-learning comparison uses scenario 1 and a headless, one-JVM-per-run driver instead of the GUI:
+
+```bash
+JAVA=".../bin/java" JAVAC=".../bin/javac" ./scripts/run-online-experiment.sh
+python analysis/hedge_experiment.py
+```
+
+The driver runs RR, Throttled, ESCE, Min Min, Ant Colony, PSO LoadBalancer, and the Proposed Method under the scenario 1, 4 and 5 presets, for five seeds each (45 runs). Outputs land in [`results/online/`](../results/online); the full setup is in [online-learning-experiment.md](online-learning-experiment.md).

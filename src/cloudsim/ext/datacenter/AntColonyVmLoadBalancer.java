@@ -1,160 +1,139 @@
 package cloudsim.ext.datacenter;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Random;
 
 import cloudsim.VirtualMachine;
-import cloudsim.VirtualMachineList;
+import cloudsim.ext.Constants;
+import cloudsim.ext.event.CloudSimEvent;
+import cloudsim.ext.event.CloudSimEventListener;
+import cloudsim.ext.event.CloudSimEvents;
+import cloudsim.ext.experiment.ExperimentSettings;
 
-public class AntColonyVmLoadBalancer extends VmLoadBalancer {
-	// Holds the values of pheromones
-	private double[][] pheromones;
-	static final double alpha = 1;
-	static final double beta = 1;
-	static final double ONE_UNIT_PHEROMONE = 1;
-	static final double EVAPORATION_FACTOR = 2;
-	private final int NUM_ANTS = 10;
+/**
+ * Ant-colony-inspired VM selection.
+ *
+ * <p>Every VM holds a pheromone trail. The trail evaporates at each decision
+ * and is reinforced by the processing time of completed cloudlets. Requests
+ * are sampled with probability proportional to
+ * {@code pheromone^alpha * (MIPS / (in-flight + 1))^beta}, so good VMs attract
+ * more work without ever being hard-coded as the only choice.</p>
+ */
+public class AntColonyVmLoadBalancer extends VmLoadBalancer implements CloudSimEventListener {
 
-	Ant[] ants;
-	DatacenterController dcbLocal;
+    private static final double ALPHA = 1.0;
+    private static final double BETA = 2.0;
+    private static final double EVAPORATION = 0.10;
+    private static final double MIN_PHEROMONE = 0.05;
+    private static final double DEPOSIT = 1.0;
+    private static final long DEFAULT_SEED = 42L;
 
-	public AntColonyVmLoadBalancer(DatacenterController dcb) {
-		super();
-		dcbLocal = dcb;
-		// ((VirtualMachine)vmList.get(0)).getMemory()
-	}
+    private final DatacenterController dcb;
+    private final Map<Integer, Double> pheromone;
+    private final Map<Integer, Integer> inFlight;
+    private final Random random;
 
-	@Override
-	public int getNextAvailableVm() {
-		pheromones = new double[dcbLocal.vmlist.size() + 1][dcbLocal.vmlist
-				.size() + 1];
-		ants = new Ant[NUM_ANTS];
-		for (int i = 0; i < ants.length; i++) {
-			ants[i] = new Ant(pheromones);
-		}
-		for (int ant = 0; ant < ants.length; ant++) {
-			ants[ant].SendAnt();
-			Evaporation();
-		}
+    public AntColonyVmLoadBalancer(DatacenterController dcb) {
+        this.dcb = dcb;
+        this.pheromone = new HashMap<Integer, Double>();
+        this.inFlight = new HashMap<Integer, Integer>();
+        Long seed = ExperimentSettings.seedOrNull();
+        this.random = new Random(seed == null ? DEFAULT_SEED : seed.longValue());
+        dcb.addCloudSimEventListener(this);
+    }
 
-		Ant queryAnt = new Ant(pheromones);
-		return queryAnt.FetchFinalVm();
-	}
+    @Override
+    public int getNextAvailableVm() {
+        List<Integer> candidates = activeCandidates();
+        if (candidates.isEmpty()) {
+            return -1;
+        }
 
-	// TODO(Dolly)
-	public void Evaporation() {
-		for (int i = 0; i < pheromones.length; i++) {
-			for (int j = 0; j < pheromones.length; j++) {
-				pheromones[i][j] /= EVAPORATION_FACTOR;
-			}
-		}
-	}
+        double[] weight = new double[candidates.size()];
+        double total = 0.0;
+        for (int i = 0; i < candidates.size(); i++) {
+            int vmId = candidates.get(i).intValue();
+            VirtualMachine vm = (VirtualMachine) dcb.getVmList().getVMbyID(vmId);
+            double mips = vm == null ? 0.0 : vm.getCharacteristics().getMips();
+            double heuristic = mips / (inFlightOf(vmId) + 1);
+            double trail = pheromoneOf(vmId);
+            weight[i] = Math.pow(trail, ALPHA) * Math.pow(Math.max(heuristic, 1.0e-9), BETA);
+            total += weight[i];
+        }
 
-	public class Ant {
-		private double[][] pheromones;
-		private boolean[] isVisited;
-		public List<Integer> path;
-		private int fakeVmId;
+        int chosen;
+        if (total <= 0.0 || Double.isNaN(total)) {
+            chosen = candidates.get(random.nextInt(candidates.size())).intValue();
+        } else {
+            double draw = random.nextDouble() * total;
+            chosen = candidates.get(candidates.size() - 1).intValue();
+            for (int i = 0; i < candidates.size(); i++) {
+                draw -= weight[i];
+                if (draw <= 0.0) {
+                    chosen = candidates.get(i).intValue();
+                    break;
+                }
+            }
+        }
 
-		public Ant(double[][] ph) {
-			pheromones = ph;
-			isVisited = new boolean[pheromones.length];
-			fakeVmId = isVisited.length - 1;
-			path = new ArrayList<Integer>();
-		}
+        evaporate();
+        allocatedVm(chosen);
+        return chosen;
+    }
 
-		public int SendAnt() {
-			return ProcessAnt(true /* updatePheromones */);
-		}
+    private List<Integer> activeCandidates() {
+        List<Integer> candidates = new ArrayList<Integer>();
+        for (Integer vmId : dcb.getVmStatesList().keySet()) {
+            if (dcb.getVmStatesList().get(vmId) != VirtualMachineState.INACTIVE) {
+                candidates.add(vmId);
+            }
+        }
+        Collections.sort(candidates);
+        return candidates;
+    }
 
-		public int FetchFinalVm() {
-			return ((VirtualMachine) dcbLocal.vmlist
-					.get(ProcessAnt(false /* updatePheromones */))).getVmId();
-		}
+    private void evaporate() {
+        for (Map.Entry<Integer, Double> entry : pheromone.entrySet()) {
+            entry.setValue(Double.valueOf(Math.max(MIN_PHEROMONE,
+                    entry.getValue().doubleValue() * (1.0 - EVAPORATION))));
+        }
+    }
 
-		public int ProcessAnt(boolean updatePheromones) {
-			int CurrentVmId = fakeVmId;
-			int nextVmId = getNextVmNode(CurrentVmId);
+    @Override
+    public void cloudSimEventFired(CloudSimEvent e) {
+        Object vmParameter = e.getParameter(Constants.PARAM_VM_ID);
+        if (!(vmParameter instanceof Integer)) {
+            return;
+        }
+        int vmId = ((Integer) vmParameter).intValue();
+        if (e.getId() == CloudSimEvents.EVENT_CLOUDLET_ALLOCATED_TO_VM) {
+            inFlight.put(vmId, Integer.valueOf(inFlightOf(vmId) + 1));
+        } else if (e.getId() == CloudSimEvents.EVENT_VM_FINISHED_CLOUDLET) {
+            inFlight.put(vmId, Integer.valueOf(Math.max(0, inFlightOf(vmId) - 1)));
+            Object processing = e.getParameter(Constants.PARAM_PROCESSING_TIME);
+            if (processing instanceof Double) {
+                double millis = ((Double) processing).doubleValue();
+                double deposit = DEPOSIT / (1.0 + Math.max(millis, 0.0));
+                pheromone.put(vmId, Double.valueOf(pheromoneOf(vmId) + deposit));
+            }
+        }
+    }
 
-			if (updatePheromones) {
-				UpdatePheromone(CurrentVmId, nextVmId);
-			}
-			while (nextVmId != CurrentVmId) {
-				path.add(nextVmId);
-				CurrentVmId = nextVmId;
-				nextVmId = getNextVmNode(CurrentVmId);
-				if (updatePheromones) {
-					UpdatePheromone(CurrentVmId, nextVmId);
-				}
-			}
+    private double pheromoneOf(int vmId) {
+        Double trail = pheromone.get(vmId);
+        if (trail == null) {
+            trail = Double.valueOf(1.0);
+            pheromone.put(vmId, trail);
+        }
+        return trail.doubleValue();
+    }
 
-			if (updatePheromones) {
-				UpdateGlobalPheromones();
-			}
-
-			return CurrentVmId;
-		}
-
-		// Assuming vmIds start from 0 and are consecutive.
-		// Assumed there is one node that is not visited
-		public int getNextVmNode(int vmId) {
-			double[] probability = computeProbability(vmId);
-			Random rand = new Random();
-			double randomization = rand.nextDouble();
-			for (int i = 0; i < probability.length; i++) {
-				randomization = randomization - probability[i];
-				if (randomization <= 0) {
-					return i;
-				}
-			}
-			for (int i = 0; i < probability.length; i++) {
-				System.out.println("Debug " + probability[i]);
-			}
-			return -1;
-		}
-
-		// Assumes there is at least one node that has note been visited
-		public double[] computeProbability(int vmId) {
-			double[] probability = new double[pheromones.length - 1];
-			double sum = 0.0;
-			for (int i = 0; i < probability.length; i++) {
-				if (isVisited[i]) {
-					probability[i] = 0;
-					continue;
-				}
-				probability[i] = scoreFunction(vmId, i);
-				sum += probability[i];
-			}
-
-			// Normalize
-			for (int i = 0; i < probability.length; i++) {
-				probability[i] = probability[i] / sum;
-			}
-			return probability;
-		}
-
-		// TODO(Dolly)
-		public void UpdatePheromone(int prevId, int newId) {
-			pheromones[prevId][newId] += ONE_UNIT_PHEROMONE;
-		}
-
-		// TODO make more optimum.
-		public double scoreFunction(int prevVmId, int newVmId) {
-			// todo cost factor
-			double maxBw = ((VirtualMachine) dcbLocal.vmlist.get(newVmId))
-					.getCharacteristics().getBw();
-			double currentBw = ((VirtualMachine) dcbLocal.vmlist.get(newVmId))
-					.getBw();
-			// double requestedBw = cloudlet.getUtilizationOfBw(0);
-			return Math.pow(pheromones[prevVmId][newVmId], alpha) + 1.0
-					+ (maxBw - currentBw / maxBw);
-
-		}
-
-		// TODO(Dolly): Update global pheromones using path and the overall
-		// score - Optional
-		public void UpdateGlobalPheromones() {
-		}
-	}
+    private int inFlightOf(int vmId) {
+        Integer count = inFlight.get(vmId);
+        return count == null ? 0 : count.intValue();
+    }
 }

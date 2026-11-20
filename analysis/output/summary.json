@@ -1,0 +1,39 @@
+{
+  "experts": [
+    "rr",
+    "throttled",
+    "esce",
+    "min-min",
+    "aco",
+    "pso",
+    "hybrid",
+    "hybrid-cost-lean",
+    "hybrid-latency-lean"
+  ],
+  "seeds": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "rounds": 96,
+  "loss": "p95_sla",
+  "sla_ms": 80.0,
+  "max_raw_loss": 1.7692,
+  "learner_cumulative_loss": 73.637,
+  "greedy_cumulative_loss": 72.607,
+  "static_regret": 1.209,
+  "dynamic_regret": 1.241,
+  "best_fixed": {
+    "rr": 0,
+    "throttled": 0,
+    "esce": 0,
+    "min-min": 0,
+    "aco": 0,
+    "pso": 0,
+    "hybrid": 0,
+    "hybrid-cost-lean": 0,
+    "hybrid-latency-lean": 5
+  }
+}

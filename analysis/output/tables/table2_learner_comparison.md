@@ -1,0 +1,18 @@
+**Table 2. Cumulative loss of the learner and fixed experts.**
+
+| policy | cumulative_loss_mean | sd | ci95_low | ci95_high | note |
+| --- | --- | --- | --- | --- | --- |
+| Hedge (mixture) | 73.64 | 0.11 | 73.51 | 73.77 |  |
+| Hedge (greedy pick) | 72.61 | 0.1 | 72.48 | 72.73 |  |
+| Uniform mixture | 73.79 | 0.11 | 73.66 | 73.92 | average of all experts, no learning |
+| Round Robin | 75.52 | 0.11 | 75.38 | 75.66 |  |
+| Throttled | 76.79 | 0.1 | 76.66 | 76.91 |  |
+| ESCE | 73.84 | 0.1 | 73.71 | 73.97 |  |
+| Min-Min | 73.25 | 0.11 | 73.11 | 73.38 |  |
+| Ant Colony (ACO) | 73.13 | 0.12 | 72.98 | 73.28 |  |
+| Particle Swarm (PSO) | 73.27 | 0.11 | 73.13 | 73.41 |  |
+| Hybrid (S1) | 72.79 | 0.1 | 72.67 | 72.91 |  |
+| Hybrid cost-lean (S4) | 73.08 | 0.09 | 72.97 | 73.2 |  |
+| Hybrid latency-lean (S5) | 72.43 | 0.11 | 72.3 | 72.56 |  |
+| Best fixed in hindsight | 72.43 | 0.11 | 72.3 | 72.56 | oracle selected per seed |
+| Per-round oracle | 72.4 | 0.1 | 72.27 | 72.52 | unattainable lower bound |

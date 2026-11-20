@@ -1,0 +1,2 @@
+run_id,expert,seed,policy,scenario,cloudlets,requests,mean_proc_ms,p95_proc_ms,max_proc_ms,proc_sla_rate,responses,response_requests,mean_response_ms,p95_response_ms,max_response_ms,response_sla_rate,vm_cost,data_cost,total_cost,sim_end_ms
+aco-seed5,aco,5,Ant Colony,,302392,30186600,5.2565,19.9886,36.8327,0.3573,302392,30186600,60.0989,82.6028,103.3735,0.0774,21.1337,290.7657,311.8993,86397161.3258

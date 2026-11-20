@@ -18,6 +18,7 @@ This repository packages the full CloudAnalyst simulator source together with a 
 - **Seven-phase selection** — idle → low-load → medium-load → high-load → elastic scaling → overload guard.
 - **Cost-aware scaling** — idle VMs are returned to standby, with an explicit active-VM floor.
 - **Scenario presets** — thresholds, idle timers and CPU/RAM weights are read from a properties file at start-up.
+- **Online learning** — a Hedge portfolio over nine load-balancer experts (RR, Throttled, ESCE, Min-Min, ACO, PSO, and three hybrid presets), evaluated on a seeded 24-hour trace: 45 CloudAnalyst runs, 5 paired seeds, 96 rounds. See [docs/online-learning-experiment.md](docs/online-learning-experiment.md).
 - **Reproducible evidence** — all 12 CloudAnalyst reports (3 scenarios × 4 policies) are archived in [`results/`](results).
 
 ### Results at a glance
@@ -35,6 +36,28 @@ This repository packages the full CloudAnalyst simulator source together with a 
 *Response-time map from a 24-hour scenario-3 run: six user bases served by six data centres, with average, maximum and minimum response time per user base.*
 
 Full tables: [docs/results.md](docs/results.md)
+
+### Online learning at a glance
+
+Nine load-balancer algorithms compete as experts on the same seeded 24-hour workload:
+Round Robin, Throttled, ESCE, **Min-Min**, **Ant Colony (ACO)**, **Particle Swarm
+(PSO)**, and three configurations of the proposed hybrid (balanced, cost-lean,
+latency-lean). Hedge chooses among them every 15 minutes and reaches a cumulative SLA
+loss of **72.61**, versus **72.43** for the best fixed expert in hindsight and **72.79**
+for the fixed hybrid. It beats the other eight experts in **5/5 paired seeds**;
+empirical regret is **0.88%** of the theoretical bound. The three new algorithms all
+beat ESCE on tail latency but pay the full-pool VM cost, while the hybrid presets keep
+the cost-latency Pareto front.
+
+![Cumulative SLA loss: Hedge vs the nine fixed load-balancer experts](analysis/output/figures/fig01_cumulative_loss.png)
+
+Full method, tables and figures: [docs/online-learning-experiment.md](docs/online-learning-experiment.md)
+
+Presentation report (Word, with figures and result tables):
+[docs/Online-Learning-Experiment-Report.docx](docs/Online-Learning-Experiment-Report.docx)
+
+Summary slides (PPTX for the end of a talk):
+[docs/Online-Learning-Experiment-Slides.pptx](docs/Online-Learning-Experiment-Slides.pptx)
 
 ---
 
@@ -107,15 +130,16 @@ where L<sub>i</sub> is the number of tasks running on VM i, C<sub>i</sub> is its
 
 ## Scenario presets
 
-[`config/loadbalancer.properties`](config/loadbalancer.properties) ships the three presets used for the archived experiments:
+[`config/loadbalancer.properties`](config/loadbalancer.properties) ships the three published presets plus the two portfolio experts:
 
-| Parameter | Scenario 1 | Scenario 2 | Scenario 3 |
-|---|---:|---:|---:|
-| Low threshold L<sub>1</sub> | 30 | 27 | 4 |
-| Medium threshold L<sub>2</sub> | 40 | 36 | 32 |
-| High threshold L<sub>3</sub> | 50 | 45 | 40 |
-| Idle threshold | 120 s | 180 s | 300 s |
-| CPU / RAM weight | 0.8 / 0.2 | 0.8 / 0.2 | 0.8 / 0.2 |
+| Parameter | Scenario 1 | Scenario 2 | Scenario 3 | Scenario 4 (cost-lean) | Scenario 5 (latency-lean) |
+|---|---:|---:|---:|---:|---:|
+| Low threshold L<sub>1</sub> | 30 | 27 | 4 | 40 | 10 |
+| Medium threshold L<sub>2</sub> | 40 | 36 | 32 | 55 | 20 |
+| High threshold L<sub>3</sub> | 50 | 45 | 40 | 70 | 30 |
+| Idle threshold | 120 s | 180 s | 300 s | 600 s | 60 s |
+| Initial active ratio | 0.85 | 0.85 | 0.85 | 0.60 | 1.00 |
+| CPU / RAM weight | 0.8 / 0.2 | 0.8 / 0.2 | 0.8 / 0.2 | 0.8 / 0.2 | 0.8 / 0.2 |
 
 Selecting a scenario is a single flag:
 
@@ -134,26 +158,35 @@ throttled-esce-hybrid-lb/
 ├── src/                                   CloudAnalyst source
 │   ├── cloudsim/ext/datacenter/
 │   │   ├── ProposedMethodLoadBalancer.java  hybrid policy (Phases 1-7)
+│   │   ├── MinMinVmLoadBalancer.java        queue-aware Min-Min
+│   │   ├── AntColonyVmLoadBalancer.java     seeded ACO
+│   │   ├── PSOVmLoadBalancer.java            seeded PSO
 │   │   ├── LoadBalancerConfig.java          scenario-preset loader
 │   │   ├── ThrottledVmLoadBalancer.java      baseline TLB
 │   │   ├── ActiveVmLoadBalancer.java         baseline ESCE
 │   │   ├── RoundRobinVmLoadBalancer.java     baseline RR
 │   │   └── DatacenterController.java         allocation + cost model
-│   └── resources/                            maps, delay and bandwidth matrices
+│   └── cloudsim/ext/experiment/             headless runner + CSV metrics
 ├── config/loadbalancer.properties          experiment parameters
+├── experiments/scenario-1.sim              headless scenario input
+├── analysis/
+│   ├── hedge_experiment.py                 Hedge portfolio, tables and figures
+│   └── output/                             generated figures, tables, RESULTS.md
 ├── docs/
 │   ├── method.md                            equations, phases, state machine
 │   ├── configuration.md                     keys, resolution order, validation
 │   ├── reproducibility.md                   full CloudAnalyst setup tables
+│   ├── online-learning-experiment.md        method, results, reproduction
 │   ├── results.md                           all metric tables
 │   └── images/                              CloudAnalyst screenshots
 ├── results/
 │   ├── scenario-1/                          CloudAnalyst reports (4 policies)
 │   ├── scenario-2/
 │   ├── scenario-3/
+│   ├── online/                              seeded 9 × 5 policy grid
 │   └── logs/                                simulator console logs
 ├── test/                                    headless configuration checks
-├── scripts/                                 build and run helpers
+├── scripts/                                 build, run and experiment drivers
 ├── jars/                                    CloudSim / GridSim / SimJava / iText
 ├── build.xml, .project, .classpath          Ant, Eclipse and NetBeans metadata
 └── .github/workflows/build.yml              CI compile + config test
@@ -203,7 +236,7 @@ In the CloudAnalyst **Advanced** tab choose **Proposed Method** as the load bala
 ./scripts/test.sh
 ```
 
-The headless test checks all three scenario presets, the built-in fallbacks and the `auto` scenario heuristic.
+The headless test checks all five scenario presets, the built-in fallbacks and the `auto` scenario heuristic.
 
 ---
 
@@ -218,6 +251,20 @@ Summary:
 3. Use **Optimize Response Time** as the service broker policy.
 4. Run **Proposed Method**, **Throttled**, **ESCE** and **Round Robin** for 24 simulated hours.
 5. Compare against the archived reports in [`results/`](results).
+
+### Online-learning experiment
+
+```bash
+./scripts/build.sh
+./scripts/run-online-experiment.sh          # 9 experts × 5 seeds, ~30 min
+python -m pip install -r analysis/requirements.txt
+python analysis/hedge_experiment.py         # portfolio figures, tables, RESULTS.md
+```
+
+The driver resumes automatically by skipping runs with a complete `summary.csv`.
+Use `EXPERTS="rr hybrid"` or `SEEDS="1 2 3 4 5 6 7 8 9 10"` to run a subset or extend
+the sample. The full protocol, equations and results are in
+[docs/online-learning-experiment.md](docs/online-learning-experiment.md).
 
 ---
 

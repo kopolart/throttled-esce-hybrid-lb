@@ -42,6 +42,7 @@ import cloudsim.ext.event.BaseCloudSimObservable;
 import cloudsim.ext.event.CloudSimEvent;
 import cloudsim.ext.event.CloudSimEventListener;
 import cloudsim.ext.event.CloudSimEvents;
+import cloudsim.ext.experiment.ExperimentMetrics;
 import cloudsim.ext.gui.DataCenterUIElement;
 import cloudsim.ext.gui.MachineUIElement;
 import cloudsim.ext.gui.UserBaseUIElement;
@@ -285,6 +286,7 @@ public class Simulation extends BaseCloudSimObservable implements Constants {
 			}
 		}
 		results.put(Constants.UB_STATS, ubResults);
+		ExperimentMetrics.getInstance().finish(results);
 
 		// Finish off simulation
 		System.out.println("Simulation finished at " + GridSim.clock());

@@ -1,287 +1,187 @@
 package cloudsim.ext.datacenter;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.Random;
 
-public class PSOVmLoadBalancer extends VmLoadBalancer {
-	
-	DatacenterController dcbLocal;
-	private DatacenterController dcb;
-	public PSOVmLoadBalancer(DatacenterController datacenterController) {
-		super();
-		dcbLocal = dcb;
-		// TODO Auto-generated constructor stub
-	}
-	
-	@Override
-	public int getNextAvailableVm() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-	private static final int TARGET = 50;
-    private static final int MAX_INPUTS = 3;
-    private static final int MAX_PARTICLES = 20;
-    private static final int V_MAX = 10;             // Maximum velocity change allowed.
+import cloudsim.VirtualMachine;
+import cloudsim.ext.Constants;
+import cloudsim.ext.event.CloudSimEvent;
+import cloudsim.ext.event.CloudSimEventListener;
+import cloudsim.ext.event.CloudSimEvents;
+import cloudsim.ext.experiment.ExperimentSettings;
 
-    private static final int MAX_EPOCHS = 200;
-    // The particles will be initialized with data randomly chosen within the range
-    // of these starting min and max values: 
-    private static final int START_RANGE_MIN = 140;
-    private static final int START_RANGE_MAX = 190;
+/**
+ * Particle-swarm-inspired VM selection.
+ *
+ * <p>Each VM is a particle whose position encodes its desirability. A request
+ * is routed to the VM with the smallest {@code expected wait / position}. The
+ * swarm then moves: velocity is pulled toward the position that produced each
+ * VM's best observed processing time (cognitive term) and toward the best VM
+ * in the swarm (social term). Positions are clamped, and a small random
+ * exploration keeps the swarm from collapsing onto one VM.</p>
+ */
+public class PSOVmLoadBalancer extends VmLoadBalancer implements CloudSimEventListener {
 
-    private static ArrayList<Particle> particles = new ArrayList<Particle>();
-    
-    private static void initialize()
-    {
-        for(int i = 0; i < MAX_PARTICLES; i++)
-        {
-            Particle newParticle = new Particle();
-            int total = 0;
-            for(int j = 0; j < MAX_INPUTS; j++)
-            {
-                newParticle.data(j, getRandomNumber(START_RANGE_MIN, START_RANGE_MAX));
-                total += newParticle.data(j);
-            } // j
-            newParticle.pBest(total);
-            particles.add(newParticle);
-        } // i
-        return;
+    private static final double INERTIA = 0.60;
+    private static final double COGNITIVE = 1.20;
+    private static final double SOCIAL = 1.40;
+    private static final double MIN_POSITION = 0.25;
+    private static final double MAX_POSITION = 1.60;
+    private static final double EXPLORATION_RATE = 0.05;
+    private static final long DEFAULT_SEED = 42L;
+
+    private final DatacenterController dcb;
+    private final Map<Integer, Integer> inFlight;
+    private final Map<Integer, double[]> particles;
+    private final Random random;
+
+    public PSOVmLoadBalancer(DatacenterController dcb) {
+        this.dcb = dcb;
+        this.inFlight = new HashMap<Integer, Integer>();
+        this.particles = new HashMap<Integer, double[]>();
+        Long seed = ExperimentSettings.seedOrNull();
+        this.random = new Random(seed == null ? DEFAULT_SEED : seed.longValue());
+        dcb.addCloudSimEventListener(this);
     }
-    
-    private static void PSOAlgorithm()
-    {
-        int gBest = 0;
-        int gBestTest = 0;
-        Particle aParticle = null;
-        int epoch = 0;
-        boolean done = false;
 
-        initialize();
-
-        while(!done)
-        {
-            // Two conditions can end this loop:
-            //    if the maximum number of epochs allowed has been reached, or,
-            //    if the Target value has been found.
-            if(epoch < MAX_EPOCHS){
-
-                for(int i = 0; i < MAX_PARTICLES; i++)
-                {
-                    aParticle = particles.get(i);
-                    for(int j = 0; j < MAX_INPUTS; j++)
-                    {
-                        if(j < MAX_INPUTS - 1){
-                            System.out.print(aParticle.data(j) + " + ");
-                        }else{
-                            System.out.print(aParticle.data(j) + " = ");
-                        }
-                    } // j
-
-                    System.out.print(testProblem(i)+ "\n");
-                    if(testProblem(i) == TARGET){
-                        done = true;
-                    }
-                } // i
-
-                gBestTest = minimum();
-                aParticle = particles.get(gBest);
-                // if(any particle's pBest value is better than the gBest value, make it the new gBest value.
-                if(Math.abs(TARGET - testProblem(gBestTest)) < Math.abs(TARGET - testProblem(gBest))){
-                    gBest = gBestTest;
-                }
-
-                getVelocity(gBest);
-
-                updateparticles(gBest);
-                
-                System.out.println("epoch number: " + epoch);
-
-                epoch += 1;
-
-            }else{
-                done = true;
-            }
+    @Override
+    public int getNextAvailableVm() {
+        List<Integer> candidates = activeCandidates();
+        if (candidates.isEmpty()) {
+            return -1;
         }
-        return;
-    }
-    
-    private static void getVelocity(int gBestindex)
-    {
-    //  from Kennedy & Eberhart(1995).
-    //    vx[][] = vx[][] + 2 * rand() * (pbestx[][] - presentx[][]) + 
-    //                      2 * rand() * (pbestx[][gbest] - presentx[][])
 
-        int testResults = 0;
-        int bestResults = 0;
-        double vValue = 0.0;
-        Particle aParticle = null;
-
-        bestResults = testProblem(gBestindex);
-
-        for(int i = 0; i < MAX_PARTICLES; i++)
-        {
-            testResults = testProblem(i);
-            aParticle = particles.get(i);
-            vValue = aParticle.velocity() + 2 * new Random().nextDouble() * (aParticle.pBest() - testResults) + 2 * new Random().nextDouble() * (bestResults - testResults);
-
-            if(vValue > V_MAX){
-                aParticle.velocity(V_MAX);
-            }else if(vValue < -V_MAX){
-                aParticle.velocity(-V_MAX);
-            }else{
-                aParticle.velocity(vValue);
-            }
-        }
-        return;
-    }
-    
-    private static void updateparticles(int gBestindex)
-    {
-        Particle gBParticle = particles.get(gBestindex);
-
-        for(int i = 0; i < MAX_PARTICLES; i++)
-        {
-            for(int j = 0; j < MAX_INPUTS; j++)
-            {
-                if(particles.get(i).data(j) != gBParticle.data(j)){
-                    particles.get(i).data(j, particles.get(i).data(j) + (int)Math.round(particles.get(i).velocity()));
-                }
-            } // j
-
-            // Check pBest value.
-            int total = testProblem(i);
-            if(Math.abs(TARGET - total) < particles.get(i).pBest()){
-                particles.get(i).pBest(total);
-            }
-
-        } // i
-        return;
-    }
-    
-    private static int testProblem(int index)
-    {
-        int total = 0;
-        Particle aParticle = null;
-
-        aParticle = particles.get(index);
-
-        for(int i = 0; i < MAX_INPUTS; i++)
-        {
-            total += aParticle.data(i);
-        }
-        return total;
-    }
-    
-    private static void printSolution()
-    {
-        // Find solution particle.
-        int i = 0;
-        for(; i < particles.size(); i++)
-        {
-            if(testProblem(i) == TARGET){
-                break;
-            }
-        }
-        // Print it.
-        System.out.println("Region 2 - Datacenter 1 has been allocated ");
-        System.out.println("Particle " + i + " has achieved target.");
-        for(int j = 0; j < MAX_INPUTS; j++)
-        {
-            if(j < MAX_INPUTS - 1){
-                System.out.print(particles.get(i).data(j) + " + ");
-            }else{
-                System.out.print(particles.get(i).data(j) + " = " + TARGET);
-                                 
-            }
-        } // j
-        System.out.print("\n");
-        return;
-    }
-    
-    private static int getRandomNumber(int low, int high)
-    {
-        return (int)((high - low) * new Random().nextDouble() + low);
-    }
-    
-    private static int minimum()
-    {
-    // Returns an array index.
-        int winner = 0;
-        boolean foundNewWinner = false;
-        boolean done = false;
-
-        while(!done)
-        {
-            foundNewWinner = false;
-            for(int i = 0; i < MAX_PARTICLES; i++)
-            {
-                if(i != winner){             // Avoid self-comparison.
-                    // The minimum has to be in relation to the Target.
-                    if(Math.abs(TARGET - testProblem(i)) < Math.abs(TARGET - testProblem(winner))){
-                        winner = i;
-                        foundNewWinner = true;
-                    }
+        int chosen;
+        if (random.nextDouble() < EXPLORATION_RATE) {
+            chosen = candidates.get(random.nextInt(candidates.size())).intValue();
+        } else {
+            chosen = -1;
+            double bestScore = Double.MAX_VALUE;
+            for (Integer vmId : candidates) {
+                double wait = expectedWait(vmId.intValue());
+                double position = particle(vmId.intValue())[0];
+                double score = wait / Math.max(position, MIN_POSITION);
+                if (score < bestScore) {
+                    bestScore = score;
+                    chosen = vmId.intValue();
                 }
             }
+        }
 
-            if(foundNewWinner == false){
-                done = true;
+        moveSwarm(candidates);
+        allocatedVm(chosen);
+        return chosen;
+    }
+
+    private void moveSwarm(List<Integer> candidates) {
+        int swarmBest = -1;
+        double bestWait = Double.MAX_VALUE;
+        for (Integer vmId : candidates) {
+            double observed = particle(vmId.intValue())[2];
+            if (observed < bestWait) {
+                bestWait = observed;
+                swarmBest = vmId.intValue();
             }
         }
+        double socialTarget = swarmBest == -1
+                ? averagePosition(candidates)
+                : particle(swarmBest)[3];
 
-        return winner;
+        for (Integer vmId : candidates) {
+            double[] p = particle(vmId.intValue());
+            double velocity = INERTIA * p[1]
+                    + COGNITIVE * random.nextDouble() * (p[3] - p[0])
+                    + SOCIAL * random.nextDouble() * (socialTarget - p[0]);
+            p[1] = velocity;
+            p[0] = clamp(p[0] + velocity);
+        }
     }
-    
-    private static class Particle
-    {
-        private int mData[] = new int[MAX_INPUTS];
-        private int mpBest = 0;
-        private double mVelocity = 0.0;
-    
-        public Particle()
-        {
-            this.mpBest = 0;
-            this.mVelocity = 0.0;
+
+    private double averagePosition(List<Integer> candidates) {
+        double sum = 0.0;
+        for (Integer vmId : candidates) {
+            sum += particle(vmId.intValue())[0];
         }
-    
-        public int data(int index)
-        {
-            return this.mData[index];
+        return sum / candidates.size();
+    }
+
+    private double[] particle(int vmId) {
+        double[] p = particles.get(vmId);
+        if (p == null) {
+            double mips = mipsOf(vmId);
+            double maxMips = maxMips();
+            double position = 0.5 + 0.5 * (maxMips <= 0.0 ? 0.5 : mips / maxMips);
+            p = new double[] { position, 0.0, Double.MAX_VALUE, position };
+            particles.put(vmId, p);
         }
-        
-        public void data(int index, int value)
-        {
-            this.mData[index] = value;
+        return p;
+    }
+
+    private double expectedWait(int vmId) {
+        double mips = mipsOf(vmId);
+        if (mips <= 0.0) {
+            return Double.MAX_VALUE;
+        }
+        return (inFlightOf(vmId) + 1) / mips;
+    }
+
+    private double mipsOf(int vmId) {
+        VirtualMachine vm = (VirtualMachine) dcb.getVmList().getVMbyID(vmId);
+        return vm == null ? 0.0 : vm.getCharacteristics().getMips();
+    }
+
+    private double maxMips() {
+        double max = 0.0;
+        for (Integer vmId : dcb.getVmStatesList().keySet()) {
+            max = Math.max(max, mipsOf(vmId.intValue()));
+        }
+        return max;
+    }
+
+    private List<Integer> activeCandidates() {
+        List<Integer> candidates = new ArrayList<Integer>();
+        for (Integer vmId : dcb.getVmStatesList().keySet()) {
+            if (dcb.getVmStatesList().get(vmId) != VirtualMachineState.INACTIVE) {
+                candidates.add(vmId);
+            }
+        }
+        Collections.sort(candidates);
+        return candidates;
+    }
+
+    @Override
+    public void cloudSimEventFired(CloudSimEvent e) {
+        Object vmParameter = e.getParameter(Constants.PARAM_VM_ID);
+        if (!(vmParameter instanceof Integer)) {
             return;
         }
-    
-        public int pBest()
-        {
-            return this.mpBest;
+        int vmId = ((Integer) vmParameter).intValue();
+        if (e.getId() == CloudSimEvents.EVENT_CLOUDLET_ALLOCATED_TO_VM) {
+            inFlight.put(vmId, Integer.valueOf(inFlightOf(vmId) + 1));
+        } else if (e.getId() == CloudSimEvents.EVENT_VM_FINISHED_CLOUDLET) {
+            inFlight.put(vmId, Integer.valueOf(Math.max(0, inFlightOf(vmId) - 1)));
+            Object processing = e.getParameter(Constants.PARAM_PROCESSING_TIME);
+            if (processing instanceof Double) {
+                double millis = ((Double) processing).doubleValue();
+                double[] p = particle(vmId);
+                if (millis < p[2]) {
+                    p[2] = millis;
+                    p[3] = p[0];
+                }
+            }
         }
+    }
 
-        public void pBest(int value)
-        {
-            this.mpBest = value;
-            return;
-        }
-    
-        public double velocity()
-        {
-            return this.mVelocity;
-        }
-        
-        public void velocity(double velocityScore)
-        {
-           this.mVelocity = velocityScore;
-           return;
-        }
-    } // Particle
-    
-    public static void main(String[] args)
-    {
-        PSOAlgorithm();
-        printSolution();
-        return;
+    private int inFlightOf(int vmId) {
+        Integer count = inFlight.get(vmId);
+        return count == null ? 0 : count.intValue();
+    }
+
+    private static double clamp(double position) {
+        return Math.max(MIN_POSITION, Math.min(MAX_POSITION, position));
     }
 }

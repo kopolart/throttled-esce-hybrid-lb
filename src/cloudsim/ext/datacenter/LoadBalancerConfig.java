@@ -8,10 +8,10 @@ import java.util.Properties;
 /**
  * Runtime configuration for {@link ProposedMethodLoadBalancer}.
  *
- * <p>The per-scenario load thresholds, idle threshold and CPU/RAM weights
- * mirror the three bundled scenario presets. Values can be overridden with
- * {@code -Dlb.config=<path>} and the scenario can be selected with
- * {@code -Dlb.scenario=1|2|3|auto}.</p>
+ * <p>Scenarios 1-3 mirror the bundled experiment presets. Scenarios 4 and 5
+ * are the cost-lean and latency-lean variants used by the online-learning
+ * experiment. Values can be overridden with {@code -Dlb.config=<path>} and
+ * the scenario can be selected with {@code -Dlb.scenario=1|2|3|4|5|auto}.</p>
  */
 public final class LoadBalancerConfig {
 
@@ -19,11 +19,16 @@ public final class LoadBalancerConfig {
     public static final String SCENARIO_PROPERTY = "lb.scenario";
     public static final String DEFAULT_CONFIG_PATH = "config/loadbalancer.properties";
 
-    /** Built-in presets: {low, medium, high, idle seconds}. */
+    /**
+     * Built-in presets: {low, medium, high, idle seconds}.
+     * 1-3 are the published scenarios; 4 is cost-lean and 5 is latency-lean.
+     */
     private static final double[][] SCENARIO_PRESETS = {
             { 30, 40, 50, 120 },
             { 27, 36, 45, 180 },
-            { 4, 32, 40, 300 }
+            { 4, 32, 40, 300 },
+            { 40, 55, 70, 600 },
+            { 10, 20, 30, 60 }
     };
 
     private static final double DEFAULT_CPU_WEIGHT = 0.8;
@@ -108,18 +113,22 @@ public final class LoadBalancerConfig {
             idle = defaults[3];
         }
 
-        double cpu = readDouble(props, "weight.cpu", DEFAULT_CPU_WEIGHT);
-        double ram = readDouble(props, "weight.ram", DEFAULT_RAM_WEIGHT);
+        double cpu = readDouble(props, "scenario." + scenario + ".cpuWeight",
+                readDouble(props, "weight.cpu", DEFAULT_CPU_WEIGHT));
+        double ram = readDouble(props, "scenario." + scenario + ".ramWeight",
+                readDouble(props, "weight.ram", DEFAULT_RAM_WEIGHT));
         if (cpu < 0 || cpu > 1 || ram < 0 || ram > 1) {
             System.err.println("[HybridLB] Invalid CPU/RAM weights; using 0.8/0.2.");
             cpu = DEFAULT_CPU_WEIGHT;
             ram = DEFAULT_RAM_WEIGHT;
         }
 
-        int failureThreshold = readInt(props, "scaling.consecutiveFailureThreshold",
-                DEFAULT_FAILURE_THRESHOLD);
-        double busyFactor = readDouble(props, "scaling.busyFactorThreshold", DEFAULT_BUSY_FACTOR);
-        double activeRatio = readDouble(props, "scaling.initialActiveRatio", DEFAULT_ACTIVE_RATIO);
+        int failureThreshold = readInt(props, "scenario." + scenario + ".consecutiveFailureThreshold",
+                readInt(props, "scaling.consecutiveFailureThreshold", DEFAULT_FAILURE_THRESHOLD));
+        double busyFactor = readDouble(props, "scenario." + scenario + ".busyFactorThreshold",
+                readDouble(props, "scaling.busyFactorThreshold", DEFAULT_BUSY_FACTOR));
+        double activeRatio = readDouble(props, "scenario." + scenario + ".initialActiveRatio",
+                readDouble(props, "scaling.initialActiveRatio", DEFAULT_ACTIVE_RATIO));
         double epsilon = readDouble(props, "scoring.epsilon", DEFAULT_EPSILON);
 
         return new LoadBalancerConfig(scenario, low, medium, high, idle, cpu, ram,

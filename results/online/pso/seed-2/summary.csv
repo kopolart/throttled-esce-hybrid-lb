@@ -1,0 +1,2 @@
+run_id,expert,seed,policy,scenario,cloudlets,requests,mean_proc_ms,p95_proc_ms,max_proc_ms,proc_sla_rate,responses,response_requests,mean_response_ms,p95_response_ms,max_response_ms,response_sla_rate,vm_cost,data_cost,total_cost,sim_end_ms
+pso-seed2,pso,2,PSO LoadBalancer,,304481,30396000,5.5099,20.7007,41.9318,0.3609,304481,30396000,60.3981,83.5457,103.2155,0.0841,21.1224,292.7826,313.9050,86352161.2386

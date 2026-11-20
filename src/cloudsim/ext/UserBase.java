@@ -8,6 +8,8 @@ import java.util.Map;
 
 import cloudsim.CloudSim;
 import cloudsim.ext.datacenter.VmLoadBalancer;
+import cloudsim.ext.experiment.ExperimentMetrics;
+import cloudsim.ext.experiment.ExperimentSettings;
 import cloudsim.ext.stat.HourlyStat;
 import cloudsim.ext.util.CommPath;
 import eduni.simjava.Sim_event;
@@ -102,8 +104,17 @@ public class UserBase extends CloudSim implements GeoLocatable {
 		
 		ResponseHandler responseHandler = new ResponseHandler(get_name() + "R");
 		
-		requestDelayDistribution = new Poisson("RequestDelayDistribution", STANDARD_POISSON_DIST_MEAN);
-		userCountDistribution = new Poisson("UserCountDistribution", STANDARD_POISSON_DIST_MEAN);
+		Long configuredSeed = ExperimentSettings.seedOrNull();
+		if (configuredSeed != null) {
+			// Common random numbers: every policy run with the same seed sees
+			// exactly the same user-count and inter-arrival sequences.
+			long base = Math.max(1L, configuredSeed.longValue() + 2L * get_id());
+			requestDelayDistribution = new Poisson("RequestDelayDistribution", STANDARD_POISSON_DIST_MEAN, base);
+			userCountDistribution = new Poisson("UserCountDistribution", STANDARD_POISSON_DIST_MEAN, base + 1);
+		} else {
+			requestDelayDistribution = new Poisson("RequestDelayDistribution", STANDARD_POISSON_DIST_MEAN);
+			userCountDistribution = new Poisson("UserCountDistribution", STANDARD_POISSON_DIST_MEAN);
+		}
 		
 	}
 	
@@ -251,6 +262,8 @@ public class UserBase extends CloudSim implements GeoLocatable {
 						
 						stat.update(Constants.UB_RESPONSE_TIME, startTime, endTime);
 						hourlyResponseTimeStat.update(startTime, endTime);
+						ExperimentMetrics.getInstance().recordResponse(endTime, endTime - startTime.doubleValue(),
+								requestCount);
 					}
 				}
 			}			
